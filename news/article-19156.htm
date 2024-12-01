@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-19156.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>try、catch、finally、return 执行流程——超详细讲解</title>
+        <meta name="description" content="1、不管有木有出现异常，finally块中代码都会执行； 2、当try和catch中有return时，finally仍然会执行； 3、finally是在return语句执行之后，返回之前执行的（此时并" />
+        <link rel="icon" href="__ADDON__/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+                        <a class="navbar-brand" href="/">
+                <span>Free Surge Node</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node
+                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">try、catch、finally、return 执行流程——超详细讲解</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <p> 1、不管有木有出现异常，finally块中代码都会执行；</p> <p>2、当try和catch中有return时，finally仍然会执行；</p> <p>3、finally是在return语句执行之后，返回之前执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，不管finally中的代码怎么样，返回的值都不会改变，仍然是之前保存的值），所以函数返回值是在finally执行前就已经确定了；</p> <p>4、finally中如果包含return，那么程序将在这里返回，而不是try或catch中的return返回，返回值就不是try或catch中保存的返回值了。</p> <p>注意：<br /> finally修改的基本类型是不影响返回结果的。（传值的）<br /> 修改list ,map,自定义类等引用类型时，是影响返回结果的。（传址的）对象也是传址的<br /> 但是date类型经过测试是不影响的。有点奇怪。</p> <p>举例：<br /> 情况1： try{} catch(){}finally{} return;<br /> 显然程序按顺序执行。</p> <p>情况2: try{ return; }catch(){} finally{} return;</p> <p>先执行try块中return 语句（包括return语句中的表达式运算），但不返回；<br /> 执行finally语句中全部代码<br /> 最后执行try中return 返回<br /> finally块之后的语句return不执行，因为程序在try中已经return。<br /> 情况3: try{ } catch(){return;} finally{} return;<br /> 1、程序先执行try，如果遇到异常执行catch块，</p> <p>有异常：<br /> 执行catch中return语句，但不返回<br /> 执行finally语句中全部代码，<br /> 最后执行catch块中return返回。 finally块后的return语句不再执行。<br /> 无异常：执行完try再finally再return…<br /> 情况4: try{ return; }catch(){} finally{return;}</p> <p>执行try块return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 此时finally块的return值，就是代码执行完后的值</p> <p>情况5: try{} catch(){return;}finally{return;}</p> <p>程序执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 情况6: try{ return;}catch(){return;} finally{return;}<br /> 1、程序执行try块中return语句（包括return语句中的表达式运算），但不返回；</p> <p>有异常：</p> <p>执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块<br /> 执行finally块，有return，从这里返回。<br /> 无异常：</p> <p>再执行finally块</p> <p>执行finally块，有return，从这里返回。。</p> <p>最终结论：</p> <p>任何执行try 或者catch中的return语句之后，在返回之前，如果finally存在的话，都会先执行finally语句，<br /> 如果finally中有return语句，那么程序就return了，所以finally中的return是一定会被return的，<br /> 编译器把finally中的return实现为一个warning。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-18727.htm">宠物鲜粮市场风险分析论文题目（宠物粮行业环境分析）</a></p>
+                                        <p>下一个：<a href="/news/article-19157.htm">使用Jenkins实现前端自动化打包部署（Linux版本）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-node-subscribe-links.htm" title="9月23日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月23日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-subscribe-node.htm" title="11月19日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月19日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-subscribe-node.htm" title="9月25日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月25日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-3-surge-github.htm" title="10月3日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月3日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-surge-node-share.htm" title="9月21日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月21日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-15-node-share.htm" title="9月15日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月15日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-today-surge-node.htm" title="11月23日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月23日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="11月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19613.htm" title="jQuery显示与隐藏动画">jQuery显示与隐藏动画</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-surge-node-share.htm" title="11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
