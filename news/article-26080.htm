@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-26080.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>go web 处理文件上传</title>
+        <meta name="description" content="go&nbsp;web中怎样实现文件上传，下面一一道来。 要使表单能够上传文件，第一步就是要添加 form 的 enctype 属性，enctype 属性有如下三种情况。  application/x" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+                        <a class="navbar-brand" href="/">
+                <span>Free Surge Node</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node
+                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">go web 处理文件上传</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>go&nbsp;web中怎样实现文件上传，下面一一道来。</p> <p>要使表单能够上传文件，第一步就是要添加 form 的 enctype 属性，enctype 属性有如下三种情况。</p> <ul> <li>application/x-www-form-urlencoded：表示在发送前编码所有字符（默认）。</li> <li>multipart/form-data：不对字符编码。在使用包含文件上传控件的表单时，必须使用该值。</li> <li>text/plain：空格转换为"+"加号，但不对特殊字符编码。</li> </ul> </h1> <h2>1&nbsp;前端代码</h2> <p>创建新的表单 html 文件，命名为 upload.html</p> <pre><code class="language-html">&lt;html&gt; &lt;head&gt;     &lt;title&gt;上传文件&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;form enctype="multipart/form-data" action="/upload" method="post"&gt;   &lt;input type="file" name="uploadfile" /&gt;   &lt;input type="hidden" name="token" value="{<!-- -->{.}}"/&gt;   &lt;input type="submit" value="upload" /&gt; &lt;/form&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <h2>2&nbsp;服务器端代码</h2> <pre><code class="language-Go">package main  import (    "crypto/md5"    "fmt"    "html/template"    "io"    "log"    "net/http"    "os"    "strconv"    "time" )  // 上传文件逻辑 func upload(w http.ResponseWriter, r *http.Request) {    fmt.Println("method:", r.Method) // 获取请求的方法    if r.Method == "GET" {       crutime := time.Now().Unix()       h := md5.New()       io.WriteString(h, strconv.FormatInt(crutime, 10))       token := fmt.Sprintf("%x", h.Sum(nil))       t, _ := template.ParseFiles("src\\goweb\\demo6\\upload.html")       t.Execute(w, token)    } else {       r.ParseMultipartForm(32 &lt;&lt; 20)       file, handler, err := r.FormFile("uploadfile")       if err != nil {          fmt.Println(err)          return       }       defer file.Close()       fmt.Fprintf(w, "%v", handler.Header)       f, err := os.OpenFile("./test/"+handler.Filename, os.O_WRONLY|os.O_CREATE, 0666) // test目录放在 GOPATH 目录下       if err != nil {          fmt.Println(err)          return       }       defer f.Close()       io.Copy(f, file)    } }  func main() {    http.HandleFunc("/upload", upload)       // 设置访问的路由    err := http.ListenAndServe(":9090", nil) // 设置监听的端口    if err != nil {       log.Fatal("ListenAndServe: ", err)    } }</code></pre> <h2>3&nbsp;说明</h2> <p>处理文件上传需要调用 r.ParseMultipartForm，它的参数表示 maxMemory，调用 ParseMultipartForm 之后，上传的文件存储在 maxMemory 大小的内存里面，如果文件大小超过了 maxMemory，那么剩下的部分将存储在系统的临时文件中。</p> <p>通过 r.FormFile 获取文件句柄，</p> <p>通过 io.Copy 来存储文件。</p> <p>获取其他非文件字段信息的时候就不需要调用 r.ParseForm，因为在需要的时候 Go 自动会去调用。</p> <p>ParseMultipartForm 调用一次之后，后面再次调用不会再有效果。</p> <h2>4&nbsp;小结</h2> <p>上传文件三步曲：</p> <p><strong>a&nbsp;前端表单中增加 enctype="multipart/form-data"。</strong></p> <p><strong>b 服务端调用 r.ParseMultipartForm，把上传的文件存储在内存和临时文件中。</strong></p> <p><strong>c 使用 r.FormFile 获取文件句柄，然后对文件进行存储处理。</strong></p> <p>文件 handler 是 multipart.FileHeader&nbsp;结构</p> <blockquote> <p>type FileHeader struct {<!-- --></p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Filename string</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;Header&nbsp;&nbsp;&nbsp;textproto.MIMEHeader</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;// contains filtered or unexported fields</p> <p>}</p> </blockquote> <h2>5&nbsp;测试结果</h2> <p style="text-align:center;"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220905/601c7850518e46ceba32f53ae601f2c3.jpg"></p> </h1> <p>Go 支持模拟客户端表单功能支持文件上传。</p> <h2>1&nbsp;代码</h2> <pre><code class="language-Go">package main  import (    "bytes"    "fmt"    "io"    "io/ioutil"    "mime/multipart"    "net/http"    "os" )  // 模拟客户端表单功能支持文件上传 func postFile(filename string, targetUrl string) error {    bodyBuf := &amp;bytes.Buffer{}    bodyWriter := multipart.NewWriter(bodyBuf)    // 操作源文件    fileWriter, err := bodyWriter.CreateFormFile("uploadfile", filename)    if err != nil {       fmt.Println("error writing to buffer")       return err    }     // 打开文件句柄操作    fh, err := os.Open(filename)    if err != nil {       fmt.Println("error opening file")       return err    }    defer fh.Close()     // iocopy    _, err = io.Copy(fileWriter, fh)    if err != nil {       return err    }     contentType := bodyWriter.FormDataContentType()    bodyWriter.Close()     resp, err := http.Post(targetUrl, contentType, bodyBuf)    if err != nil {       return err    }    defer resp.Body.Close()    resp_body, err := ioutil.ReadAll(resp.Body)    if err != nil {       return err    }    fmt.Println(resp.Status)    fmt.Println(string(resp_body))    return nil }  // 测试 func main() {    target_url := "http://localhost:9090/upload"    filename := "a.txt"    postFile(filename, target_url) }</code></pre> <h2>2&nbsp;测试</h2> <p>客户端打印如下：</p> <blockquote> <p>200 OK</p> <p>map[Content-Disposition:[form-data; name="uploadfile"; filename="a.txt"] Content-Type:[application/octet-stream]]</p> </blockquote> <h2>3&nbsp;上传效果</h2> <p><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220905/d0237661ed287810ebdef047c54ddf68.jpg"></p> <h2>4&nbsp;说明</h2> <p>该例子展示了客户端如何向服务器上传一个文件的例子，客户端通过 multipart.Write 把文件的文本流写入一个缓存中，然后调用 http 的 Post 方法把缓存传到服务器。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25603.htm">宠物猫疫苗间隔多久打一次好（宠物猫疫苗时间间隔）</a></p>
+                                        <p>下一个：<a href="/news/article-26081.htm">中国十大品牌兽药批发（中国十大名牌兽药厂家）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-15-node-share-links.htm" title="10月15日→19.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月15日→19.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share-links.htm" title="11月28日→20.6M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月28日→20.6M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="11月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-surge-node-share.htm" title="12月13日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月13日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26536.htm" title="开宠物店大概投资多少（开宠物店大概投资多少合适）">开宠物店大概投资多少（开宠物店大概投资多少合适）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share-links.htm" title="10月28日→19.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月28日→19.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-node-subscribe.htm" title="11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-node-subscribe.htm" title="10月20日→18.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月20日→18.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-free-high-speed-nodes.htm" title="9月29日→20.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月29日→20.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-surge-node-share.htm" title="12月1日→19.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月1日→19.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
