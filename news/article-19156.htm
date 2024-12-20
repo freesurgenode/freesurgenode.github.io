@@ -8,15 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>try、catch、finally、return 执行流程——超详细讲解</title>
         <meta name="description" content="1、不管有木有出现异常，finally块中代码都会执行； 2、当try和catch中有return时，finally仍然会执行； 3、finally是在return语句执行之后，返回之前执行的（此时并" />
-        <link rel="icon" href="__ADDON__/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
     <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
-    
-<!-- Google tag (gtag.js) -->
+    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -95,7 +94,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<div id="content_views" class="htmledit_views"> <p> 1、不管有木有出现异常，finally块中代码都会执行；</p> <p>2、当try和catch中有return时，finally仍然会执行；</p> <p>3、finally是在return语句执行之后，返回之前执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，不管finally中的代码怎么样，返回的值都不会改变，仍然是之前保存的值），所以函数返回值是在finally执行前就已经确定了；</p> <p>4、finally中如果包含return，那么程序将在这里返回，而不是try或catch中的return返回，返回值就不是try或catch中保存的返回值了。</p> <p>注意：<br /> finally修改的基本类型是不影响返回结果的。（传值的）<br /> 修改list ,map,自定义类等引用类型时，是影响返回结果的。（传址的）对象也是传址的<br /> 但是date类型经过测试是不影响的。有点奇怪。</p> <p>举例：<br /> 情况1： try{} catch(){}finally{} return;<br /> 显然程序按顺序执行。</p> <p>情况2: try{ return; }catch(){} finally{} return;</p> <p>先执行try块中return 语句（包括return语句中的表达式运算），但不返回；<br /> 执行finally语句中全部代码<br /> 最后执行try中return 返回<br /> finally块之后的语句return不执行，因为程序在try中已经return。<br /> 情况3: try{ } catch(){return;} finally{} return;<br /> 1、程序先执行try，如果遇到异常执行catch块，</p> <p>有异常：<br /> 执行catch中return语句，但不返回<br /> 执行finally语句中全部代码，<br /> 最后执行catch块中return返回。 finally块后的return语句不再执行。<br /> 无异常：执行完try再finally再return…<br /> 情况4: try{ return; }catch(){} finally{return;}</p> <p>执行try块return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 此时finally块的return值，就是代码执行完后的值</p> <p>情况5: try{} catch(){return;}finally{return;}</p> <p>程序执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 情况6: try{ return;}catch(){return;} finally{return;}<br /> 1、程序执行try块中return语句（包括return语句中的表达式运算），但不返回；</p> <p>有异常：</p> <p>执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块<br /> 执行finally块，有return，从这里返回。<br /> 无异常：</p> <p>再执行finally块</p> <p>执行finally块，有return，从这里返回。。</p> <p>最终结论：</p> <p>任何执行try 或者catch中的return语句之后，在返回之前，如果finally存在的话，都会先执行finally语句，<br /> 如果finally中有return语句，那么程序就return了，所以finally中的return是一定会被return的，<br /> 编译器把finally中的return实现为一个warning。</p> </p></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p> 1、不管有木有出现异常，finally块中代码都会执行；</p> <p>2、当try和catch中有return时，finally仍然会执行；</p> <p>3、finally是在return语句执行之后，返回之前执行的（此时并没有返回运算后的值，而是先把要返回的值保存起来，不管finally中的代码怎么样，返回的值都不会改变，仍然是之前保存的值），所以函数返回值是在finally执行前就已经确定了；</p> <p>4、finally中如果包含return，那么程序将在这里返回，而不是try或catch中的return返回，返回值就不是try或catch中保存的返回值了。</p> <p>注意：<br /> finally修改的基本类型是不影响返回结果的。（传值的）<br /> 修改list ,map,自定义类等引用类型时，是影响返回结果的。（传址的）对象也是传址的<br /> 但是date类型经过测试是不影响的。有点奇怪。</p> <p>举例：<br /> 情况1： try{} catch(){}finally{} return;<br /> 显然程序按顺序执行。</p> <p>情况2: try{ return; }catch(){} finally{} return;</p> <p>先执行try块中return 语句（包括return语句中的表达式运算），但不返回；<br /> 执行finally语句中全部代码<br /> 最后执行try中return 返回<br /> finally块之后的语句return不执行，因为程序在try中已经return。<br /> 情况3: try{ } catch(){return;} finally{} return;<br /> 1、程序先执行try，如果遇到异常执行catch块，</p> <p>有异常：<br /> 执行catch中return语句，但不返回<br /> 执行finally语句中全部代码，<br /> 最后执行catch块中return返回。 finally块后的return语句不再执行。<br /> 无异常：执行完try再finally再return…<br /> 情况4: try{ return; }catch(){} finally{return;}</p> <p>执行try块return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 此时finally块的return值，就是代码执行完后的值</p> <p>情况5: try{} catch(){return;}finally{return;}</p> <p>程序执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块，<br /> 执行finally块，有return，从这里返回。<br /> 情况6: try{ return;}catch(){return;} finally{return;}<br /> 1、程序执行try块中return语句（包括return语句中的表达式运算），但不返回；</p> <p>有异常：</p> <p>执行catch块中return语句（包括return语句中的表达式运算），但不返回；<br /> 再执行finally块<br /> 执行finally块，有return，从这里返回。<br /> 无异常：</p> <p>再执行finally块</p> <p>执行finally块，有return，从这里返回。。</p> <p>最终结论：</p> <p>任何执行try 或者catch中的return语句之后，在返回之前，如果finally存在的话，都会先执行finally语句，<br /> 如果finally中有return语句，那么程序就return了，所以finally中的return是一定会被return的，<br /> 编译器把finally中的return实现为一个warning。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-18727.htm">宠物鲜粮市场风险分析论文题目（宠物粮行业环境分析）</a></p>
                                         <p>下一个：<a href="/news/article-19157.htm">使用Jenkins实现前端自动化打包部署（Linux版本）</a></p>
@@ -108,16 +108,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-9-25-free-subscribe-node.htm" title="9月25日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月25日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-20077.htm" title="宠物医院好评语30字通用句子 宠物医院好评语30字通用句子怎么写">宠物医院好评语30字通用句子 宠物医院好评语30字通用句子怎么写</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-11-surge-node-share.htm" title="9月11日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月11日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-surge-node-github.htm" title="10月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-13-surge-node-share.htm" title="9月13日→22.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月13日→22.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-node-share.htm" title="9月9日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月9日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-7-free-node-subscribe-links.htm" title="10月7日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月7日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-subscribe-node.htm" title="9月27日→19.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月27日→19.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-node-share-links.htm" title="10月1日→22.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月1日→22.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-3-surge-node-github.htm" title="11月3日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月3日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-surge-node.htm" title="12月8日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月8日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27926.htm" title="docker离线配置安装">docker离线配置安装</a></li>
+                        <li class="py-2"><a href="/news/article-23272.htm" title="Springboot之请求映射">Springboot之请求映射</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-latest-surge-node.htm" title="9月28日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月28日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-16-surge-windows.htm" title="11月16日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月16日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share.htm" title="12月16日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月16日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-surge-node-share.htm" title="12月14日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月14日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20530.htm" title="医院动物实验中心干什么（医院动物实验室）">医院动物实验中心干什么（医院动物实验室）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27000.htm" title="Java实习生面试题汇总">Java实习生面试题汇总</a></li>
                     </ul>
     </div>
 </div>
@@ -129,7 +129,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -155,6 +155,15 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
                         </p>
                     </div>

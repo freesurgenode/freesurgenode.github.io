@@ -94,7 +94,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-9">
-                                          				  				  				<p>这是因为没有GROUP BY子句，MySQL返回的输出可能会误导。我们在下面的“学生”表上给出以下示例，以进行演示-</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;Student; +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;Computers&nbsp;| +------+---------+---------+-----------+ 4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;count(*),&nbsp;Name&nbsp;from&nbsp;Student; +----------+--------+ |&nbsp;count(*)&nbsp;|&nbsp;name&nbsp;&nbsp;&nbsp;| +----------+--------+ |&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;| +----------+--------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>从上面的查询结果可以看出，它返回组函数COUNT（*）的输出作为表中的总行数，但是字段“名称”中的值“ Gaurav”具有误导性，因为我们在什么基础上执行，要么是该列的第一个值，要么是多次存储在该列中，MySQL会返回它。</p> <p>现在，如果我们将使用GROUP BY子句编写此查询，则结果集如下-</p> <pre>mysql&gt;&nbsp;Select&nbsp;count(*),&nbsp;name&nbsp;from&nbsp;student&nbsp;GROUP&nbsp;BY&nbsp;id; +----------+---------+ |&nbsp;count(*)&nbsp;|&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| +----------+---------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;| +----------+---------+ 4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>从上面的结果集中可以看出，借助GROUP BY子句，我们得到了有意义的输出。</p> <div></div> 			                <div class="clearfix"></div>
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<p>这是因为没有GROUP BY子句，MySQL返回的输出可能会误导。我们在下面的“学生”表上给出以下示例，以进行演示-</p> <pre>mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;Student; +------+---------+---------+-----------+ |&nbsp;Id&nbsp;&nbsp;&nbsp;|&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Address&nbsp;|&nbsp;Subject&nbsp;&nbsp;&nbsp;| +------+---------+---------+-----------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Computers&nbsp;| |&nbsp;2&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;|&nbsp;Mumbai&nbsp;&nbsp;|&nbsp;History&nbsp;&nbsp;&nbsp;| |&nbsp;15&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;|&nbsp;Delhi&nbsp;&nbsp;&nbsp;|&nbsp;Commerce&nbsp;&nbsp;| |&nbsp;20&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;|&nbsp;Jaipur&nbsp;&nbsp;|&nbsp;Computers&nbsp;| +------+---------+---------+-----------+ 4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)  mysql&gt;&nbsp;Select&nbsp;count(*),&nbsp;Name&nbsp;from&nbsp;Student; +----------+--------+ |&nbsp;count(*)&nbsp;|&nbsp;name&nbsp;&nbsp;&nbsp;| +----------+--------+ |&nbsp;4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;| +----------+--------+ 1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>从上面的查询结果可以看出，它返回组函数COUNT（*）的输出作为表中的总行数，但是字段“名称”中的值“ Gaurav”具有误导性，因为我们在什么基础上执行，要么是该列的第一个值，要么是多次存储在该列中，MySQL会返回它。</p> <p>现在，如果我们将使用GROUP BY子句编写此查询，则结果集如下-</p> <pre>mysql&gt;&nbsp;Select&nbsp;count(*),&nbsp;name&nbsp;from&nbsp;student&nbsp;GROUP&nbsp;BY&nbsp;id; +----------+---------+ |&nbsp;count(*)&nbsp;|&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;| +----------+---------+ |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Aarav&nbsp;&nbsp;&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Harshit&nbsp;| |&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;Gaurav&nbsp;&nbsp;| +----------+---------+ 4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>从上面的结果集中可以看出，借助GROUP BY子句，我们得到了有意义的输出。</p> <div></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-25139.htm">动物疫苗公司产量排名榜前十名（动物疫苗行业排名）</a></p>
                                         <p>下一个：<a href="/news/article-25603.htm">宠物猫疫苗间隔多久打一次好（宠物猫疫苗时间间隔）</a></p>
@@ -107,16 +108,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25139.htm" title="动物疫苗公司产量排名榜前十名（动物疫苗行业排名）">动物疫苗公司产量排名榜前十名（动物疫苗行业排名）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-today-surge-node.htm" title="11月14日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月14日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-16-node-share.htm" title="12月16日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月16日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-19-surge-windows.htm" title="10月19日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月19日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share-links.htm" title="10月28日→19.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月28日→19.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-11-surge-node-share.htm" title="9月11日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月11日→20.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-10-5-surge-windows.htm" title="10月5日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月5日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-surge-node-github.htm" title="11月25日→21.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月25日→21.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-8-free-high-speed-nodes.htm" title="10月8日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月8日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-today-surge-node.htm" title="11月15日→22.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月15日→22.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25138.htm" title="golang常用库包：Go依赖注入(DI)工具-wire使用">golang常用库包：Go依赖注入(DI)工具-wire使用</a></li>
+                        <li class="py-2"><a href="/news/article-24208.htm" title="动物疫苗知识培训总结（动物疫苗管理工作总结）">动物疫苗知识培训总结（动物疫苗管理工作总结）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share-links.htm" title="11月28日→20.6M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月28日→20.6M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-14-free-node-subscribe-links.htm" title="9月14日→20.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月14日→20.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-4-surge-github.htm" title="12月4日→22.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月4日→22.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22823.htm" title="环形链表方法解决约瑟夫环问题（JAVA）">环形链表方法解决约瑟夫环问题（JAVA）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-surge-node-github.htm" title="11月3日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月3日→19M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -128,7 +129,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -154,6 +155,15 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
                         <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                             <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
                         </p>
                     </div>
