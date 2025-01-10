@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-38428.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Parquet 之mapreduce</title>
+        <meta name="description" content="在mapreduce中使用Parquet，根据不同的序列化方式，有不同的选择，下面以Avro为例： 使用 AvroParquetInputFormat 和 AvroParquetOutputForma" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+                        <a class="navbar-brand" href="/">
+                <span>Free Surge Node</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node
+                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">Parquet 之mapreduce</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>在mapreduce中使用Parquet，根据不同的序列化方式，有不同的选择，下面以Avro为例：<br /> 使用 AvroParquetInputFormat 和 AvroParquetOutputFormat</p> <pre class="prettyprint"><code class="hljs scala"><span class="hljs-annotation">@Override</span>     public int run(String[] strings)<span class="hljs-keyword">throws</span> Exception {           Path inputPath =<span class="hljs-keyword">new</span> Path(strings[<span class="hljs-number">0</span>]);         Path outputPath =<span class="hljs-keyword">new</span> Path(strings[<span class="hljs-number">1</span>]);          Job job = Job.getInstance(getConf(),<span class="hljs-string">"AvroParquetMapReduce"</span>);         job.setJarByClass(getClass());          job.setInputFormatClass(AvroParquetInputFormat.<span class="hljs-keyword">class</span>);         AvroParquetInputFormat.setInputPaths(job,inputPath);          job.setMapperClass(Map.<span class="hljs-keyword">class</span>);         job.setReducerClass(Reduce.<span class="hljs-keyword">class</span>);          job.setOutputFormatClass(AvroParquetOutputFormat.<span class="hljs-keyword">class</span>);         FileOutputFormat.setOutputPath(job,outputPath);         AvroParquetOutputFormat.setSchema(job,StockAvg.SCHEMA$);<span class="hljs-keyword">return</span> job.waitForCompletion(<span class="hljs-keyword">true</span>) ?<span class="hljs-number">0</span> :<span class="hljs-number">1</span>;     }      static<span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">Map</span><span class="hljs-keyword">extends</span><span class="hljs-title">Mapper</span>&lt;<span class="hljs-title">Void</span>,<span class="hljs-title">Stock</span>,<span class="hljs-title">Text</span>,<span class="hljs-title">DoubleWritable</span>&gt;{<!-- --></span><span class="hljs-annotation">@Override</span><span class="hljs-keyword">protected</span> void map(Void key, Stock value, Context context)<span class="hljs-keyword">throws</span> IOException, InterruptedException {             context.write(<span class="hljs-keyword">new</span> Text(value.getSymbol().toString()),<span class="hljs-keyword">new</span> DoubleWritable(value.getOpen()));         }     }      static<span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">Reduce</span><span class="hljs-keyword">extends</span><span class="hljs-title">Reducer</span>&lt;<span class="hljs-title">Text</span>,<span class="hljs-title">DoubleWritable</span>,<span class="hljs-title">Void</span>,<span class="hljs-title">StockAvg</span>&gt; {<!-- --></span><span class="hljs-annotation">@Override</span><span class="hljs-keyword">protected</span> void reduce(Text key, Iterable&lt;DoubleWritable&gt; values, Context context)<span class="hljs-keyword">throws</span> IOException, InterruptedException {             Mean mean =<span class="hljs-keyword">new</span> Mean();<span class="hljs-keyword">for</span> (DoubleWritable<span class="hljs-keyword">val</span> :values){                 mean.increment(<span class="hljs-keyword">val</span>.get());             }              StockAvg avg =<span class="hljs-keyword">new</span> StockAvg();             avg.setSymbol(key.toString());             avg.setAvg(mean.getResult());             context.write(<span class="hljs-keyword">null</span>,avg);         }     }</code></pre> <p>这里的输入输出都是 Parquet文件。如果向输入是Text文件，只要不设置InputFormatClass即可。</p> <p>如果改变input schema文件，Avro不能加载具体的class，会强制使用GenericData代替。</p> <pre class="prettyprint"><code class="hljs axapta"><span class="hljs-keyword">public</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">AvroProjectionParquetMapReduce</span><span class="hljs-inheritance"><span class="hljs-keyword">extends</span></span><span class="hljs-title">Configured</span><span class="hljs-inheritance"><span class="hljs-keyword">implements</span></span><span class="hljs-title">Tool</span> {<!-- --></span><span class="hljs-keyword">public</span><span class="hljs-keyword">static</span><span class="hljs-keyword">void</span> main(String[] args) throws Exception {         args =<span class="hljs-keyword">new</span> String[<span class="hljs-number">2</span>];          args[<span class="hljs-number">0</span>] =<span class="hljs-string">"hdfs://hadoop:9000/user/madong/parquet-input"</span>;         args[<span class="hljs-number">1</span>] =<span class="hljs-string">"hdfs://hadoop:9000/user/madong/parquet-output"</span>;<span class="hljs-keyword">int</span> code = ToolRunner.run(<span class="hljs-keyword">new</span> AvroProjectionParquetMapReduce(),args);         System.exit(code);     }      @Override<span class="hljs-keyword">public</span><span class="hljs-keyword">int</span> run(String[] strings) throws Exception {         Path inputPath =<span class="hljs-keyword">new</span> Path(strings[<span class="hljs-number">0</span>]);         Path outputPath =<span class="hljs-keyword">new</span> Path(strings[<span class="hljs-number">1</span>]);           Job job = Job.getInstance(getConf(),<span class="hljs-string">"AvroProjectionParquetMapReduce"</span>);         job.setJarByClass(AvroProjectionParquetMapReduce.class);          job.setInputFormatClass(AvroParquetInputFormat.class);         AvroParquetInputFormat.setInputPaths(job, inputPath);<span class="hljs-comment">// predicate pushdown</span>         AvroParquetInputFormat.setUnboundRecordFilter(job, GoogleStockFilter.class);<span class="hljs-comment">// projection pushdown</span>         Schema projection = Schema.createRecord(Stock.SCHEMA$.getName(),                 Stock.SCHEMA$.getDoc(), Stock.SCHEMA$.getNamespace(),<span class="hljs-keyword">false</span>);         List&lt;Schema.Field&gt; fields = Lists.newArrayList();<span class="hljs-keyword">for</span> (Schema.Field field : Stock.SCHEMA$.getFields()) {<span class="hljs-keyword">if</span> (<span class="hljs-string">"symbol"</span>.equals(field.name()) ||<span class="hljs-string">"open"</span>.equals(field.name())) {                 fields.add(<span class="hljs-keyword">new</span> Schema.Field(field.name(), field.schema(), field.doc(),                         field.defaultValue(), field.<span class="hljs-keyword">order</span>()));             }         }         projection.setFields(fields);         AvroParquetInputFormat.setRequestedProjection(job, projection);           job.setMapperClass(Map.class);         job.setReducerClass(Reduce.class);          job.setMapOutputKeyClass(Text.class);         job.setMapOutputValueClass(DoubleWritable.class);          job.setOutputFormatClass(AvroParquetOutputFormat.class);         FileOutputFormat.setOutputPath(job, outputPath);         AvroParquetOutputFormat.setSchema(job, StockAvg.SCHEMA$);<span class="hljs-keyword">return</span> job.waitForCompletion(<span class="hljs-keyword">true</span>) ?<span class="hljs-number">0</span> :<span class="hljs-number">1</span>;     }<span class="hljs-keyword">public</span><span class="hljs-keyword">static</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">GoogleStockFilter</span><span class="hljs-inheritance"><span class="hljs-keyword">implements</span></span><span class="hljs-title">UnboundRecordFilter</span> {<!-- --></span><span class="hljs-keyword">private</span><span class="hljs-keyword">final</span> UnboundRecordFilter filter;<span class="hljs-keyword">public</span> GoogleStockFilter() {             filter = ColumnRecordFilter.column(<span class="hljs-string">"symbol"</span>, ColumnPredicates.equalTo(<span class="hljs-string">"GOOG"</span>));         }          @Override<span class="hljs-keyword">public</span> RecordFilter bind(Iterable&lt;ColumnReader&gt; readers) {<span class="hljs-keyword">return</span> filter.bind(readers);         }     }<span class="hljs-keyword">static</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">Map</span><span class="hljs-inheritance"><span class="hljs-keyword">extends</span></span><span class="hljs-title">Mapper</span>&lt;<span class="hljs-title">Void</span>,<span class="hljs-title">Stock</span>,<span class="hljs-title">Text</span>,<span class="hljs-title">DoubleWritable</span>&gt; {<!-- --></span>          @Override<span class="hljs-keyword">protected</span><span class="hljs-keyword">void</span> map(Void key, Stock value, Context context) throws IOException, InterruptedException {<span class="hljs-keyword">if</span> (value !=<span class="hljs-keyword">null</span>) {                 context.write(<span class="hljs-keyword">new</span> Text(value.getSymbol().toString()),<span class="hljs-keyword">new</span> DoubleWritable(value.getOpen()));             }         }     }<span class="hljs-keyword">static</span><span class="hljs-class"><span class="hljs-keyword">class</span><span class="hljs-title">Reduce</span><span class="hljs-inheritance"><span class="hljs-keyword">extends</span></span><span class="hljs-title">Reducer</span>&lt;<span class="hljs-title">Text</span>,<span class="hljs-title">DoubleWritable</span>,<span class="hljs-title">Void</span>,<span class="hljs-title">StockAvg</span>&gt; {<!-- --></span>          @Override<span class="hljs-keyword">protected</span><span class="hljs-keyword">void</span> reduce(Text key, Iterable&lt;DoubleWritable&gt; values, Context context) throws IOException, InterruptedException {             Mean mean =<span class="hljs-keyword">new</span> Mean();<span class="hljs-keyword">for</span> (DoubleWritable val :values){                 mean.increment(val.get());             }              StockAvg<span class="hljs-keyword">avg</span> =<span class="hljs-keyword">new</span> StockAvg();<span class="hljs-keyword">avg</span>.setSymbol(key.toString());<span class="hljs-keyword">avg</span>.setAvg(mean.getResult());             context.write(<span class="hljs-keyword">null</span>,<span class="hljs-keyword">avg</span>);         }     } }</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37953.htm">免费领养宠物的软件下载（免费领养宠物的小程序）</a></p>
+                                        <p>下一个：<a href="/news/article-38429.htm">动物疫苗需要冷藏吗多久打（动物疫苗保质期一般多久）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-23734.htm" title="人穷养什么宠物好呢（人穷养什么宠物好呢图片）">人穷养什么宠物好呢（人穷养什么宠物好呢图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-surge-node-share.htm" title="11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32180.htm" title="动物疫苗合格证明在哪办理手续（动物疫苗证是什么样的）">动物疫苗合格证明在哪办理手续（动物疫苗证是什么样的）</a></li>
+                        <li class="py-2"><a href="/news/article-19157.htm" title="使用Jenkins实现前端自动化打包部署（Linux版本）">使用Jenkins实现前端自动化打包部署（Linux版本）</a></li>
+                        <li class="py-2"><a href="/news/article-32659.htm" title="幼猫一定要跟人睡,不然就一直叫唤是为什么（小奶猫要和人睡）">幼猫一定要跟人睡,不然就一直叫唤是为什么（小奶猫要和人睡）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-node-share-links.htm" title="11月9日→21M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月9日→21M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20994.htm" title="动物为什么要注射肝素（动物实验中肝素的作用）">动物为什么要注射肝素（动物实验中肝素的作用）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-node-share.htm" title="12月15日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月15日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-free-surge-node.htm" title="1月4日→19M/S|2025年最新免费节点Free Surge Node订阅链接地址">1月4日→19M/S|2025年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-surge-github.htm" title="10月22日→20.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月22日→20.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
