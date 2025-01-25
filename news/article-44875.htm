@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-44875.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>springboot实现定时任务-Scheduling</title>
+        <meta name="description" content="cron为cron表达式，用来表示该任务在日期时间维度执行频率，详细可参考cron表达式的文章 fixedRate:代表该任务的执行频率，单位毫秒，无论任务执行耗时多久，总是以该频率执行任务 fixe" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-44875.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="springboot实现定时任务-Scheduling" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/469d3dd77063b63d7e662d1744c15146.webp" />
+        <meta property="og:release_date" content="2025-01-23T10:40:20" />
+    <meta property="og:updated_time" content="2025-01-23T10:40:20" />
+        <meta property="og:description" content="cron为cron表达式，用来表示该任务在日期时间维度执行频率，详细可参考cron表达式的文章 fixedRate:代表该任务的执行频率，单位毫秒，无论任务执行耗时多久，总是以该频率执行任务 fixe" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot实现定时任务-Scheduling">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+                        <a class="navbar-brand" href="/">
+                <span>Free Surge Node</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node
+                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">springboot实现定时任务-Scheduling</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <p>cron为cron表达式，用来表示该任务在日期时间维度执行频率，详细可参考cron表达式的文章</p> <p>fixedRate:代表该任务的执行频率，单位毫秒，无论任务执行耗时多久，总是以该频率执行任务</p> <p>fixedDelay:代表该任务的执行频率，单位毫秒，在上一次任务执行完后等待x毫秒后执行下次任务</p> </h1> <p>前提：springboot通过scheduling实现的定时任务使用的线程有自己的线程池，默认大小为1，此时无法满足多个定时任务的情形，因此通常需要手动设置线程池的大小，以10为例。</p> <p>有以下三种情形</p> <p>1.使用fixedRate属性不加@Async注解、使用fixedRate属性加@Async注解</p> <p>2.使用cron不加@Async注解、使用cron属性加@Async注解</p> <p>3.使用fixedDelay不加@Async注解</p> <pre><code class="language-java">@Component @EnableAsync @Slf4j public class ScheduledTasks {      @Scheduled(fixedDelay = 3000) //    @Scheduled(fixedRate = 3000) //    @Scheduled(cron = "0/3 * * * * ?") //    @Async(value = "myAsync")     void contextLoads() throws InterruptedException {         log.info("scheduled1 wait start");         Thread.sleep(4000);         log.info("scheduled1 wait end");         log.info("scheduled task run....      " + Thread.currentThread().getName());     }  //    @Scheduled(cron = "0/3 * * * * ?")     @Scheduled(fixedDelay = 3000) //    @Scheduled(fixedRate = 3000) //    @Async(value = "myAsync")     void scheduled2() throws InterruptedException {         log.info("scheduled2 wait start");         Thread.sleep(4000);         log.info("scheduled2 wait end");         log.info("scheduled task2 run....      " + Thread.currentThread().getName());     } }</code></pre> </h1> <h3>1.使用fixedRate加@Async注解和使用cron加@Async注解效果相同</h3> <p>会实现无论任务执行耗时多久，下次任务始终会以规定的频率执行；</p> <p>上述例子中若为fixedRate，则下次任务开始执行始终是在上次任务开始后的三秒；</p> <p>若为cron，则下次任务开始执行始终为上次任务开始执行后的三秒，也就是上次任务开始时间为10:23:02，则下次任务开始时间为10:23:05，此种情况不受任务执行耗时影响。</p> <h3>2.使用fixedRate不加@Async注解</h3> <p>此时若每次任务执行耗时比fixedRate的值小，则会在上次任务开始后的fixedRate毫秒后开始执行下次任务；</p> <p>若每次执行任务耗时比fixedRate的值大，则会在上次任务执行后立刻执行下次任务，因为此时已经超过规定的执行频率的时间，因此需要立刻执行下次任务。</p> <h3>3.使用cron不加@Async注解</h3> <p>此时若每次任务执行耗时比cron表达式所表示的上次任务开始时间与下次任务开始时间的间隔小，则会以cron表达式表示的频率执行任务；</p> <p>若每次任务执行耗时比cron表达式所表示的上次任务开始时间与下次任务开始时间的间隔大，则下次任务会在上次任务执行完成后再到达cron表达式所表示的任务开始执行的时刻开始执行任务，例如上述例子中上次任务开始时间为10:23:02，任务执行耗时4s，而以cron表达式表示的频率下次的执行时间为10:23:05，但是此时上次任务并没有执行完成，上次任务执行完成的时间为10:23:06，因此下次任务执行需要等到cron表达式表示的下一次任务执行的时刻也就是10:23:08.</p> <h3>4.使用fixedDelay不加@Async注解</h3> <p>使用fixedDelay属性时不能加@Async注解，否则会报错。</p> <p>此时无论任务执行耗时是多少，下次任务开始执行的时间总是上次任务执行完成后的fixedDelay毫秒。</p> <h3>5.当有多个定时任务时，在保证定时任务线程池数以及异步线程池数足够的情况下，多个定时任务同样遵循上述结论。</h3> <h3>6.上述结论中1和4是比较符合开发需要的两种场景。</h3> </h1> <h3>1.修改定时任务默认的线程池大小</h3> <p>方式一：修改配置文件application.yml&nbsp;</p> <pre><code class="language-java">spring.task.scheduling.pool.size = 10</code></pre> <p>方式二：配置类</p> <pre><code class="language-java">@Configuration public class ScheduleConfig implements SchedulingConfigurer {     @Override     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {         taskRegistrar.setScheduler(Executors.newScheduledThreadPool(50));     } }</code></pre> <h3>2.自定义定时任务的线程池</h3> <pre><code class="language-java">@Configuration public class ScheduleConfig {       /**      * 此处方法名为Bean的名字，方法名无需固定      * 因为是按TaskScheduler接口自动注入      */     @Bean     public TaskScheduler taskScheduler(){         // Spring提供的定时任务线程池类         ThreadPoolTaskScheduler taskScheduler=new ThreadPoolTaskScheduler();         //设定最大可用的线程数目         taskScheduler.setPoolSize(10);         return taskScheduler;     } }</code></pre> <h3>3.自定义异步任务线程池</h3> <pre><code class="language-java">@Component public class AsyncScheduledTaskConfig {      @Bean     public Executor myAsync() {         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();         //最大线程数         executor.setMaxPoolSize(100);         //核心线程数         executor.setCorePoolSize(10);         //任务队列的大小         executor.setQueueCapacity(10);         //线程前缀名         executor.setThreadNamePrefix("task-thread");         //线程存活时间         executor.setKeepAliveSeconds(30);          /**          * 拒绝处理策略          * CallerRunsPolicy()：交由调用方线程运行，比如 main 线程。          * AbortPolicy()：直接抛出异常。          * DiscardPolicy()：直接丢弃。          * DiscardOldestPolicy()：丢弃队列中最老的任务。          */         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());         //线程初始化         executor.initialize();         return executor;     } } </code></pre> <p>使用时只需在@Async注解中使用value属性指定线程线程池名称，也就是bean的名称，上述默认为方法名</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44376.htm">领养宠物的概念是什么呢（领养宠物的概念是什么呢英文）</a></p>
+                                        <p>下一个：<a href="/news/article-44876.htm">猫从几个月养最亲人（猫主动爬你身上说明了什么）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-18726.htm" title="Go使用Gin+mysql实现增删改查">Go使用Gin+mysql实现增删改查</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-surge-node.htm" title="11月1日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月1日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-24-surge-node.htm" title="1月24日→20.5M/S|最新免费节点Clash/Shadowrocket/SSR/V2ray/Surge订阅链接地址">1月24日→20.5M/S|最新免费节点Clash/Shadowrocket/SSR/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30760.htm" title="怎么联系宠物救助站 怎么联系宠物救助站哈尔滨">怎么联系宠物救助站 怎么联系宠物救助站哈尔滨</a></li>
+                        <li class="py-2"><a href="/news/article-43386.htm" title="MySQL高级 之 explain执行计划详解（*）">MySQL高级 之 explain执行计划详解（*）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-today-surge-node.htm" title="10月18日→22.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月18日→22.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-node-subscribe.htm" title="11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43879.htm" title="宠物狗粮销售招聘要求（狗粮招聘业务）">宠物狗粮销售招聘要求（狗粮招聘业务）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-surge-github.htm" title="10月10日→21.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月10日→21.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-surge-github.htm" title="11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
