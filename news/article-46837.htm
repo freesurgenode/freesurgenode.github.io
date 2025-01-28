@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-46837.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包</title>
+        <meta name="description" content="首先新建项目  项目名随便取，这里就叫它GuiH.ClassLibrary  默认即可，需要改目标版本时，等创建好再改  项目创建好了  随便写个接口方法 namespace GuiH.ClassLi" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-46837.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/0baab8015ef665f1ac77f7acfff8ac41.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:17:52" />
+    <meta property="og:updated_time" content="2025-01-27T08:17:52" />
+        <meta property="og:description" content="首先新建项目  项目名随便取，这里就叫它GuiH.ClassLibrary  默认即可，需要改目标版本时，等创建好再改  项目创建好了  随便写个接口方法 namespace GuiH.ClassLi" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+                        <a class="navbar-brand" href="/">
+                <span>Free Surge Node</span>
+            </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node
+                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				</h1> <h2 id="首先新建项目">首先新建项目</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/956082d0c7de0c69d91d833e92051993.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <h2 id="项目名随便取这里就叫它guihclasslibrary">项目名随便取，这里就叫它<code>GuiH.ClassLibrary</code></h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/c0b46d05393a8832c8c64c0b628b6ea3.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <h2 id="默认即可需要改目标版本时等创建好再改">默认即可，需要改目标版本时，等创建好再改</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/63ee1507c9f9b5e0a86fe4102b7b9aa5.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <h2 id="项目创建好了">项目创建好了</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f4a4bdbf3c79967ca43a40edf0bbfcf2.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <h2 id="随便写个接口方法">随便写个接口方法</h2> <pre><code class="language-C#">namespace GuiH.ClassLibrary {     public class Class1     {         public static void Test()         {             Console.WriteLine("Hello Nuget！！！");         }     } }</code></pre> <h2 id="接下来修改工程文件默认情况是这样的">接下来修改工程文件，默认情况是这样的</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/e9d3249f549b96d1a84cd1c00b2ddd68.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"><br /> 我们添加下面一些配置</p> <pre><code class="language-xml">&lt;Project Sdk="Microsoft.NET.Sdk"&gt;  	&lt;PropertyGroup&gt; 		&lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt; 		&lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt; 		&lt;Nullable&gt;enable&lt;/Nullable&gt;  		&lt;!--以下是我们自己添加的--&gt; 		&lt;!--版本号，重要性不必多说--&gt; 		&lt;Version&gt;1.0.0&lt;/Version&gt; 		&lt;!--添加该配置，在编译时进行打包--&gt; 		&lt;GeneratePackageOnBuild&gt;true&lt;/GeneratePackageOnBuild&gt; 		&lt;!--添加该配置才会生成注释文件，默认无注释--&gt; 		&lt;GenerateDocumentationFile&gt;true&lt;/GenerateDocumentationFile&gt; 	&lt;/PropertyGroup&gt;  &lt;/Project&gt;</code></pre> <h2 id="执行编译命令根据上面的配置编译后会自动进行打包">执行编译命令，根据上面的配置，编译后会自动进行打包</h2> <pre><code>// 该命令在GuiH.ClassLibrary项目根目录下执行 dotnet build -c=Release</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/480ad757600fd0db3b92432a54685e27.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"><br /> 命令行中也提示了<code>已成功创建包“E:\工作区\GuiH.ClassLibrary\GuiH.ClassLibrary\bin\Release\GuiH.ClassLibrary.1.0.0.nupkg”</code></p> <h2 id="将guihclasslibrary100nupkg推送至nuget仓库可以自己搭建也可以是微软官方nuget仓库">将<code>GuiH.ClassLibrary.1.0.0.nupkg</code>推送至nuget仓库，可以自己搭建，也可以是微软官方nuget仓库</h2> <h3 id="在wwwnugetorg注册一个账号然后获取apikey">在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nuget.org/"  target="_blank" rel="nofollow">www.nuget.org</a>注册一个账号，然后获取<code>apikey</code></h3> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/47a493d99c836f9d60cefe52e980afbf.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/26dbcf008194d9abeb15e1762a8f188c.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <p>详细发布nuget命令参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.microsoft.com/zh-cn/dotnet/core/tools/dotnet-nuget-push"  target="_blank" rel="nofollow">dotnet-nuget-push</a></p> <pre><code>// $apikey 替换为你的apikey dotnet nuget push ./bin/Release/GuiH.ClassLibrary.1.0.0.nupkg -k $apikey -s https://api.nuget.org/v3/index.json --skip-duplicate  正在将 GuiH.ClassLibrary.1.0.0.nupkg 推送到 'https://www.nuget.org/api/v2/package'...   PUT https://www.nuget.org/api/v2/package/ warn : All published packages should have license information specified. Learn more: https://aka.ms/deprecateLicenseUrl.   Created https://www.nuget.org/api/v2/package/ 1404 毫秒 已推送包。</code></pre> <h2 id="搜索发布的包一般会短暂延迟几分钟才能搜到在项目中使用应该创建一个控制台测试知道就好">搜索发布的包(一般会短暂延迟几分钟才能搜到),在项目中使用（应该创建一个控制台测试，知道就好~）</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/865b06961b78a419db286cad578c3b45.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/4a26e8f0e6fb68b1a8ba64d9a57a9696.jpg" alt="发布nuget包的正确姿势---cicd自动打包发布nuget包"></p> <h2 id="多种目标平台支持">多种目标平台支持</h2> <p>例如兼容<code>framwork4.6.1</code>，修改工程文件如下,注意单词<code>TargetFrameworks</code>的单复数</p> <pre><code>// 修改前 &lt;TargetFramework&gt;net6.0&lt;/TargetFramework&gt; // 修改后 &lt;TargetFrameworks&gt;net6.0;net461&lt;/TargetFrameworks&gt;</code></pre> <p>或只支持net461</p> <pre><code>&lt;TargetFrameworks&gt;net461&lt;/TargetFrameworks&gt;</code></pre> <h2 id="cicd">CICD</h2> <p>cicd脚本中核心的两条命令就是上述两个，运行环境安装相应的sdk(.net5/.net6)即可。</p> <h2 id="关于如何多平台兼容的详细内容下篇文章介绍">关于如何多平台兼容的详细内容，下篇文章介绍。</h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46357.htm">农大动物医院是24小时吗 农大宠物医院地址电话</a></p>
+                                        <p>下一个：<a href="/news/article-46838.htm">AOT和单文件发布对程序性能的影响</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-node-subscribe-links.htm" title="1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-node-share-links.htm" title="10月12日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月12日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-high-speed-nodes.htm" title="1月18日→20.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址">1月18日→20.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-34556.htm" title="动物疫苗一般多少钱打一针啊图片大全（动物疫苗一般多少钱打一针啊图片大全视频）">动物疫苗一般多少钱打一针啊图片大全（动物疫苗一般多少钱打一针啊图片大全视频）</a></li>
+                        <li class="py-2"><a href="/news/article-41902.htm" title="三国杀武将台词语音包下载（三国杀角色台词语音）">三国杀武将台词语音包下载（三国杀角色台词语音）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share-links.htm" title="11月10日→19.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月10日→19.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-surge-node-share.htm" title="11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月4日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-31187.htm" title="养狗对家庭风水好吗（最适合养狗的三大属相）">养狗对家庭风水好吗（最适合养狗的三大属相）</a></li>
+                        <li class="py-2"><a href="/news/article-31697.htm" title="Group velocity and phase velocity(群速度与相速度)">Group velocity and phase velocity(群速度与相速度)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe-links.htm" title="12月11日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月11日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
