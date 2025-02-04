@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freesurgenode.github.io/news/article-28857.htm" />
@@ -9,6 +9,33 @@
     <title>Pytorch版本yolov3部分代码语句分析</title>
         <meta name="description" content="这里只针对代码中出现的具体函数。使用pytorch版本的yolov3代码。 Pytorch版本的yolov3代码可见github连接：https://github.com/eriklindernore" />
         <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-28857.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Pytorch版本yolov3部分代码语句分析" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/4eed814e903fb51488e9eb0a2c34d299.webp" />
+        <meta property="og:release_date" content="2024-12-21T10:10:03" />
+    <meta property="og:updated_time" content="2024-12-21T10:10:03" />
+        <meta property="og:description" content="这里只针对代码中出现的具体函数。使用pytorch版本的yolov3代码。 Pytorch版本的yolov3代码可见github连接：https://github.com/eriklindernore" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Pytorch版本yolov3部分代码语句分析">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
@@ -108,16 +135,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25602.htm" title="为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？">为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-17-free-subscribe-node.htm" title="10月17日→22.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月17日→22.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-1-surge-node.htm" title="11月1日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月1日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-33126.htm" title="养猫***多少钱一针（养猫***多少钱一针图片）">养猫***多少钱一针（养猫***多少钱一针图片）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-26-surge-node.htm" title="10月26日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月26日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-today-surge-node.htm" title="11月14日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月14日→18M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-10-node-share-links.htm" title="11月10日→19.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月10日→19.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-30-free-subscribe-node.htm" title="9月30日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月30日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-free-subscribe-node.htm" title="9月27日→19.2M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月27日→19.2M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-5-surge-windows.htm" title="10月5日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月5日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-free-subscribe-node.htm" title="12月12日→20.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月12日→20.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33127.htm" title="2023猫粮排行榜前十名是什么（2020下半年猫粮测评）">2023猫粮排行榜前十名是什么（2020下半年猫粮测评）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-surge-github.htm" title="11月12日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月12日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-surge-github.htm" title="11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25139.htm" title="动物疫苗公司产量排名榜前十名（动物疫苗行业排名）">动物疫苗公司产量排名榜前十名（动物疫苗行业排名）</a></li>
+                        <li class="py-2"><a href="/news/article-26081.htm" title="中国十大品牌兽药批发（中国十大名牌兽药厂家）">中国十大品牌兽药批发（中国十大名牌兽药厂家）</a></li>
+                        <li class="py-2"><a href="/news/article-42402.htm" title="批发猫的地方在哪（猫 批发）">批发猫的地方在哪（猫 批发）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-free-surge-node.htm" title="11月6日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月6日→18.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-node-subscribe-links.htm" title="1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-free-high-speed-nodes.htm" title="11月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月30日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -129,19 +156,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
@@ -167,7 +191,7 @@
                                 <a href="/privacy.htm">隐私申明</a> |
                                 <a href="/sitemap.xml">网站地图</a>
                             </p>
-                            <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
                         </p>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freesurgenode.github.io/news/article-26534.htm" />
@@ -9,6 +9,33 @@
     <title>Elasticsearch Mapping 中配置自定义Analyzer</title>
         <meta name="description" content="多字段特性  默认text 类型会有一个keyword 字段类型  什么情况下使用多字段？  公司名字实现精确匹配 使用不同的Analyzer  不同语言 pinyin字段的搜索 还支持为搜索和索引指" />
         <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-26534.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Elasticsearch Mapping 中配置自定义Analyzer" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/85b7a1c006ce3568460a655cb53d3932.webp" />
+        <meta property="og:release_date" content="2024-12-16T10:12:04" />
+    <meta property="og:updated_time" content="2024-12-16T10:12:04" />
+        <meta property="og:description" content="多字段特性  默认text 类型会有一个keyword 字段类型  什么情况下使用多字段？  公司名字实现精确匹配 使用不同的Analyzer  不同语言 pinyin字段的搜索 还支持为搜索和索引指" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Elasticsearch Mapping 中配置自定义Analyzer">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
@@ -108,16 +135,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-surge-github.htm" title="11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月27日→22.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-25138.htm" title="golang常用库包：Go依赖注入(DI)工具-wire使用">golang常用库包：Go依赖注入(DI)工具-wire使用</a></li>
-                        <li class="py-2"><a href="/news/article-31186.htm" title="拼多多无货源开店怎么开（拼多多无货源如何开网店全套教程）">拼多多无货源开店怎么开（拼多多无货源如何开网店全套教程）</a></li>
-                        <li class="py-2"><a href="/news/article-31697.htm" title="Group velocity and phase velocity(群速度与相速度)">Group velocity and phase velocity(群速度与相速度)</a></li>
-                        <li class="py-2"><a href="/news/article-27926.htm" title="docker离线配置安装">docker离线配置安装</a></li>
-                        <li class="py-2"><a href="/news/article-33613.htm" title="妙三多疫苗一共几针（妙三多疫苗一共几针多少钱）">妙三多疫苗一共几针（妙三多疫苗一共几针多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-today-surge-node.htm" title="12月21日→19.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月21日→19.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-32659.htm" title="幼猫一定要跟人睡,不然就一直叫唤是为什么（小奶猫要和人睡）">幼猫一定要跟人睡,不然就一直叫唤是为什么（小奶猫要和人睡）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-free-node-subscribe.htm" title="11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月7日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-node-subscribe.htm" title="12月17日→20.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月17日→20.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44875.htm" title="springboot实现定时任务-Scheduling">springboot实现定时任务-Scheduling</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe-links.htm" title="11月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-44375.htm" title="动物医院收费标准最新表格图（动物医院看病多少钱）">动物医院收费标准最新表格图（动物医院看病多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-surge-github.htm" title="11月21日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月21日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22365.htm" title="42. Vue组件传值-子组件通过事件调用向父组件传值">42. Vue组件传值-子组件通过事件调用向父组件传值</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-27-free-subscribe-node.htm" title="12月27日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月27日→22.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-28388.htm" title="兰州宠物用品批发地点在哪里进货（兰州宠物市场）">兰州宠物用品批发地点在哪里进货（兰州宠物市场）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-21-free-subscribe-node.htm" title="1月21日→21M/S|最新免费节点Clash/SSR/Shadowrocket/V2ray/Surge订阅链接地址">1月21日→21M/S|最新免费节点Clash/SSR/Shadowrocket/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49835.htm" title="宠物批发商城在哪（宠物批发在哪里）">宠物批发商城在哪（宠物批发在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-subscribe-node.htm" title="1月29日→22.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址">1月29日→22.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -129,19 +156,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
@@ -167,7 +191,7 @@
                                 <a href="/privacy.htm">隐私申明</a> |
                                 <a href="/sitemap.xml">网站地图</a>
                             </p>
-                            <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
                         </p>
                     </div>
                 </div>

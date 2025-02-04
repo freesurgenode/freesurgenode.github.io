@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://freesurgenode.github.io/news/article-25602.htm" />
@@ -9,6 +9,33 @@
     <title>为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？</title>
         <meta name="description" content="这是因为没有GROUP BY子句，MySQL返回的输出可能会误导。我们在下面的“学生”表上给出以下示例，以进行演示- mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nb" />
         <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-25602.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/85b7a1c006ce3568460a655cb53d3932.webp" />
+        <meta property="og:release_date" content="2024-12-14T10:12:15" />
+    <meta property="og:updated_time" content="2024-12-14T10:12:15" />
+        <meta property="og:description" content="这是因为没有GROUP BY子句，MySQL返回的输出可能会误导。我们在下面的“学生”表上给出以下示例，以进行演示- mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nb" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
     <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
@@ -108,16 +135,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-25602.htm" title="为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？">为什么我们不应该在MySQL SELECT查询中不使用没有GROUP BY子句的非组字段的组函数？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-3-surge-github.htm" title="10月3日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月3日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-26-free-surge-node.htm" title="12月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月26日→19.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-23-today-surge-node.htm" title="11月23日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月23日→19.8M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-27002.htm" title="参观动物园心得300字（参观动物园心得体会80字）">参观动物园心得300字（参观动物园心得体会80字）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-surge-node-share.htm" title="12月1日→19.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月1日→19.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-surge-windows.htm" title="10月27日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址">10月27日→22.6M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-9-node-share.htm" title="9月9日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址">9月9日→18.7M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-25-surge-node-github.htm" title="11月25日→21.4M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月25日→21.4M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-30760.htm" title="怎么联系宠物救助站 怎么联系宠物救助站哈尔滨">怎么联系宠物救助站 怎么联系宠物救助站哈尔滨</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-free-node-subscribe.htm" title="1月9日→21.9M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">1月9日→21.9M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-surge-node-github.htm" title="1月3日→19.8M/S|2025年最新免费节点Free Surge Node订阅链接地址">1月3日→19.8M/S|2025年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-surge-node-share.htm" title="12月13日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月13日→18.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-32658.htm" title="开个宠物医院需要什么条件才能开（开个宠物医院需要什么条件才能开呢）">开个宠物医院需要什么条件才能开（开个宠物医院需要什么条件才能开呢）</a></li>
+                        <li class="py-2"><a href="/news/article-28388.htm" title="兰州宠物用品批发地点在哪里进货（兰州宠物市场）">兰州宠物用品批发地点在哪里进货（兰州宠物市场）</a></li>
+                        <li class="py-2"><a href="/news/article-23272.htm" title="Springboot之请求映射">Springboot之请求映射</a></li>
+                        <li class="py-2"><a href="/news/article-44876.htm" title="猫从几个月养最亲人（猫主动爬你身上说明了什么）">猫从几个月养最亲人（猫主动爬你身上说明了什么）</a></li>
+                        <li class="py-2"><a href="/news/article-30281.htm" title="中国动物疫苗厂家排名榜 中国动物疫苗厂家排名榜前十名">中国动物疫苗厂家排名榜 中国动物疫苗厂家排名榜前十名</a></li>
+                        <li class="py-2"><a href="/news/article-37445.htm" title="2021动物疫苗行业前景（动物疫苗发展前景）">2021动物疫苗行业前景（动物疫苗发展前景）</a></li>
                     </ul>
     </div>
 </div>
@@ -129,19 +156,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
@@ -167,7 +191,7 @@
                                 <a href="/privacy.htm">隐私申明</a> |
                                 <a href="/sitemap.xml">网站地图</a>
                             </p>
-                            <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
                         </p>
                     </div>
                 </div>
