@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-52451.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>java sm3国密算法加密、验证工具类</title>
+        <meta name="description" content="java sm3国密算法加密、验证工具类  说明   maven依赖 完整代码 测试      由于本人并不专于算法和密码学，所以如果发现工具类存在问题或者可优化地方，欢迎评论处提出。 工具类也可以直" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-52451.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="java sm3国密算法加密、验证工具类" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/0c6930d0200c77aa772aaaa95abc5c40.webp" />
+        <meta property="og:release_date" content="2025-02-07T07:18:33" />
+    <meta property="og:updated_time" content="2025-02-07T07:18:33" />
+        <meta property="og:description" content="java sm3国密算法加密、验证工具类  说明   maven依赖 完整代码 测试      由于本人并不专于算法和密码学，所以如果发现工具类存在问题或者可优化地方，欢迎评论处提出。 工具类也可以直" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="java sm3国密算法加密、验证工具类">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="#">关于</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">java sm3国密算法加密、验证工具类</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>java sm3国密算法加密、验证工具类</h3> <ul> <li><a href="#_1" rel="nofollow">说明</a></li> <li> <ul> <li><a href="#maven_4" rel="nofollow">maven依赖</a></li> <li><a href="#_15" rel="nofollow">完整代码</a></li> <li><a href="#_101" rel="nofollow">测试</a></li> </ul> </li> </ul> </div> </h1> <p>由于本人并不专于算法和密码学，所以如果发现工具类存在问题或者可优化地方，欢迎评论处提出。<br /> 工具类也可以直接使用封装过的依赖：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/notsayyu/dsy-sm-cipher/packages/1332757"  rel="nofollow">https://github.com/notsayyu/dsy-sm-cipher/packages/1332757</a></p> <h2><a id="maven_4" rel="nofollow"></a>maven依赖</h2> <pre><code class="prism language-java"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>mvnrepository<span class="token punctuation">.</span>com<span class="token operator">/</span>artifact<span class="token operator">/</span>org<span class="token punctuation">.</span>bouncycastle<span class="token operator">/</span>bcprov<span class="token operator">-</span>jdk15on<span class="token operator">--</span><span class="token operator">&gt;</span><span class="token generics"><span class="token punctuation">&lt;</span>dependency<span class="token punctuation">&gt;</span></span><span class="token generics"><span class="token punctuation">&lt;</span>groupId<span class="token punctuation">&gt;</span></span>org<span class="token punctuation">.</span>bouncycastle<span class="token operator">&lt;</span><span class="token operator">/</span>groupId<span class="token operator">&gt;</span><span class="token generics"><span class="token punctuation">&lt;</span>artifactId<span class="token punctuation">&gt;</span></span>bcprov<span class="token operator">-</span>jdk15on<span class="token operator">&lt;</span><span class="token operator">/</span>artifactId<span class="token operator">&gt;</span><span class="token generics"><span class="token punctuation">&lt;</span>version<span class="token punctuation">&gt;</span></span><span class="token number">1.54</span><span class="token operator">&lt;</span><span class="token operator">/</span>version<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>dependency<span class="token operator">&gt;</span></code></pre> <h2><a id="_15" rel="nofollow"></a>完整代码</h2> <pre><code class="prism language-java"><span class="token keyword">package</span><span class="token namespace">com<span class="token punctuation">.</span>example<span class="token punctuation">.</span>pass<span class="token punctuation">.</span>common<span class="token punctuation">.</span>utils</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">org<span class="token punctuation">.</span>bouncycastle<span class="token punctuation">.</span>crypto<span class="token punctuation">.</span>digests<span class="token punctuation">.</span></span><span class="token class-name">SM3Digest</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">org<span class="token punctuation">.</span>bouncycastle<span class="token punctuation">.</span>jce<span class="token punctuation">.</span>provider<span class="token punctuation">.</span></span><span class="token class-name">BouncyCastleProvider</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">org<span class="token punctuation">.</span>bouncycastle<span class="token punctuation">.</span>pqc<span class="token punctuation">.</span>math<span class="token punctuation">.</span>linearalgebra<span class="token punctuation">.</span></span><span class="token class-name">ByteUtils</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">java<span class="token punctuation">.</span>io<span class="token punctuation">.</span></span><span class="token class-name">UnsupportedEncodingException</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">java<span class="token punctuation">.</span>security<span class="token punctuation">.</span></span><span class="token class-name">Security</span><span class="token punctuation">;</span><span class="token keyword">import</span><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span></span><span class="token class-name">Arrays</span><span class="token punctuation">;</span><span class="token comment">/**  * @description:  * @author: dsy  * @date: 2021/2/25 14:39  */</span><span class="token keyword">public</span><span class="token keyword">class</span><span class="token class-name">Sm3Utils</span><span class="token punctuation">{<!-- --></span><span class="token keyword">private</span><span class="token keyword">static</span><span class="token keyword">final</span><span class="token class-name">String</span> ENCODING<span class="token operator">=</span><span class="token string">"UTF-8"</span><span class="token punctuation">;</span><span class="token keyword">static</span><span class="token punctuation">{<!-- --></span><span class="token class-name">Security</span><span class="token punctuation">.</span><span class="token function">addProvider</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token class-name">BouncyCastleProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * sm3算法加密      *      * @param paramStr 待加密字符串      * @return 返回加密后，固定长度=32的16进制字符串      * @explain      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token class-name">String</span><span class="token function">encrypt</span><span class="token punctuation">(</span><span class="token class-name">String</span> paramStr<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将返回的hash值转换成16进制字符串</span><span class="token class-name">String</span> resultHexString<span class="token operator">=</span><span class="token string">""</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 将字符串转换成byte数组</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> srcData<span class="token operator">=</span> paramStr<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span>ENCODING<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 调用hash()</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> resultHash<span class="token operator">=</span><span class="token function">hash</span><span class="token punctuation">(</span>srcData<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 将返回的hash值转换成16进制字符串</span>             resultHexString<span class="token operator">=</span><span class="token class-name">ByteUtils</span><span class="token punctuation">.</span><span class="token function">toHexString</span><span class="token punctuation">(</span>resultHash<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">UnsupportedEncodingException</span> e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> resultHexString<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * 返回长度=32的byte数组      *      * @param srcData      * @return      * @explain 生成对应的hash值      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token function">hash</span><span class="token punctuation">(</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> srcData<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token class-name">SM3Digest</span> digest<span class="token operator">=</span><span class="token keyword">new</span><span class="token class-name">SM3Digest</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         digest<span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span>srcData<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span> srcData<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> hash<span class="token operator">=</span><span class="token keyword">new</span><span class="token keyword">byte</span><span class="token punctuation">[</span>digest<span class="token punctuation">.</span><span class="token function">getDigestSize</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>         digest<span class="token punctuation">.</span><span class="token function">doFinal</span><span class="token punctuation">(</span>hash<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">return</span> hash<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token comment">/**      * 判断源数据与加密数据是否一致      *      * @param srcStr       原字符串      * @param sm3HexString 16进制字符串      * @return 校验结果      * @explain 通过验证原数组和生成的hash数组是否为同一数组，验证2者是否为同一数据      */</span><span class="token keyword">public</span><span class="token keyword">static</span><span class="token keyword">boolean</span><span class="token function">verify</span><span class="token punctuation">(</span><span class="token class-name">String</span> srcStr<span class="token punctuation">,</span><span class="token class-name">String</span> sm3HexString<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">boolean</span> flag<span class="token operator">=</span><span class="token boolean">false</span><span class="token punctuation">;</span><span class="token keyword">try</span><span class="token punctuation">{<!-- --></span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> srcData<span class="token operator">=</span> srcStr<span class="token punctuation">.</span><span class="token function">getBytes</span><span class="token punctuation">(</span>ENCODING<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> sm3Hash<span class="token operator">=</span><span class="token class-name">ByteUtils</span><span class="token punctuation">.</span><span class="token function">fromHexString</span><span class="token punctuation">(</span>sm3HexString<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> newHash<span class="token operator">=</span><span class="token function">hash</span><span class="token punctuation">(</span>srcData<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>newHash<span class="token punctuation">,</span> sm3Hash<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 flag<span class="token operator">=</span><span class="token boolean">true</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token keyword">catch</span><span class="token punctuation">(</span><span class="token class-name">UnsupportedEncodingException</span> e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>             e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">return</span> flag<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <h2><a id="_101" rel="nofollow"></a>测试</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/ed00187ee0fa072e46c72d21152bfdb5.jpg" alt="java sm3国密算法加密、验证工具类"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-51918.htm">新疆养狗基地（新疆大型犬基地）</a></p>
+                                        <p>下一个：<a href="/news/article-52452.htm">合肥宠物领养日（合肥宠物免费领养）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-free-subscribe-node.htm" title="12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月6日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-surge-node-github.htm" title="11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-surge-node-github.htm" title="1月7日→18.2M/S|最新免费节点V2ray/SSR/Clash/Shadowrocket/Surge订阅链接地址">1月7日→18.2M/S|最新免费节点V2ray/SSR/Clash/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22366.htm" title="宠物粮食加工厂需要投资多少钱呢知乎视频下载（宠物粮加工设备）">宠物粮食加工厂需要投资多少钱呢知乎视频下载（宠物粮加工设备）</a></li>
+                        <li class="py-2"><a href="/news/article-31186.htm" title="拼多多无货源开店怎么开（拼多多无货源如何开网店全套教程）">拼多多无货源开店怎么开（拼多多无货源如何开网店全套教程）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-node-share.htm" title="12月15日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月15日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-node-share-links.htm" title="11月22日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月22日→20.3M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37953.htm" title="免费领养宠物的软件下载（免费领养宠物的小程序）">免费领养宠物的软件下载（免费领养宠物的小程序）</a></li>
+                        <li class="py-2"><a href="/news/article-24207.htm" title="动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）">动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-37952.htm" title="动物医院诊室图片大全集（动物医院布局）">动物医院诊室图片大全集（动物医院布局）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
