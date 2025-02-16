@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-56270.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>tensorflow基础流程</title>
+        <meta name="description" content="引入包并查看版本号 import tensorflow as tf import tensorflow.keras as keras  print(tf.__version__) print(kera" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-56270.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="tensorflow基础流程" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/3f096e5199f8bc403b5176467d9ee49c.webp" />
+        <meta property="og:release_date" content="2025-02-14T10:01:09" />
+    <meta property="og:updated_time" content="2025-02-14T10:01:09" />
+        <meta property="og:description" content="引入包并查看版本号 import tensorflow as tf import tensorflow.keras as keras  print(tf.__version__) print(kera" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="tensorflow基础流程">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">tensorflow基础流程</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <h2> <a id="_1" rel="nofollow"></a>引入包并查看版本号</h2> <pre><code class="prism language-python"><span class="token keyword">import</span> tensorflow <span class="token keyword">as</span> tf <span class="token keyword">import</span> tensorflow<span class="token punctuation">.</span>keras <span class="token keyword">as</span> keras </code></pre> <pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>tf<span class="token punctuation">.</span>__version__<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>keras<span class="token punctuation">.</span>__version__<span class="token punctuation">)</span> </code></pre> <pre><code>2.0.0 2.2.4-tf </code></pre> <h2> <a id="_19" rel="nofollow"></a>引入数据集</h2> <blockquote> <p>如果下载不顺利的话可以从 https://www.kaggle.com/vikramtiwari/mnist-numpy/data 手动下载好mnist文件，然后把它复制到keras/datasets这个文件夹下面。</p> </blockquote> <pre><code class="prism language-python">mnist <span class="token operator">=</span> keras<span class="token punctuation">.</span>datasets<span class="token punctuation">.</span>mnist <span class="token punctuation">(</span>train_images<span class="token punctuation">,</span> train_labels<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>test_images<span class="token punctuation">,</span> test_labels<span class="token punctuation">)</span> <span class="token operator">=</span> mnist<span class="token punctuation">.</span>load_data<span class="token punctuation">(</span><span class="token punctuation">)</span> </code></pre> <pre><code class="prism language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>train_images<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>test_images<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>train_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>test_labels<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> </code></pre> <pre><code>(60000, 28, 28) (10000, 28, 28) (60000,) (10000,) </code></pre> <h2> <a id="_43" rel="nofollow"></a>搭建模型进行预测</h2> <pre><code class="prism language-python">model <span class="token operator">=</span> tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>models<span class="token punctuation">.</span>Sequential<span class="token punctuation">(</span><span class="token punctuation">[</span>   tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Flatten<span class="token punctuation">(</span>input_shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">28</span><span class="token punctuation">,</span> <span class="token number">28</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">128</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'relu'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dropout<span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>   tf<span class="token punctuation">.</span>keras<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>Dense<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> activation<span class="token operator">=</span><span class="token string">'softmax'</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">)</span>  model<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span>optimizer<span class="token operator">=</span><span class="token string">'adam'</span><span class="token punctuation">,</span>               loss<span class="token operator">=</span><span class="token string">'sparse_categorical_crossentropy'</span><span class="token punctuation">,</span>               metrics<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'accuracy'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> </code></pre> <blockquote> <p>最下面输出的两个数字分别代表损失函数和准确率，要是能顺便把accu和loss的值画成曲线图就更好啦。乍看起来tf比pytorch更简单，可以少写很多代码，但其实高度封装的后果就是你不需要操心底层的实现，没办法把学到的原理落实到每个细节，头重脚轻，如果涉及到不能采取拿来主义的地方就很难办。另外一点就是你很难访问计算过程中的中间结果，就好像做饭时只能拿着大刀砍骨头，不能用小刀雕萝卜。</p> </blockquote> <pre><code class="prism language-python">model<span class="token punctuation">.</span>fit<span class="token punctuation">(</span>train_images<span class="token punctuation">,</span> train_labels<span class="token punctuation">,</span> epochs<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span> model<span class="token punctuation">.</span>evaluate<span class="token punctuation">(</span>test_images<span class="token punctuation">,</span> test_labels<span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">2</span><span class="token punctuation">)</span> </code></pre> <pre><code>Train on 60000 samples Epoch 1/5 60000/60000 [==============================] - 6s 93us/sample - loss: 2.5732 - accuracy: 0.7574 Epoch 2/5 60000/60000 [==============================] - 5s 84us/sample - loss: 0.6132 - accuracy: 0.8468 Epoch 3/5 60000/60000 [==============================] - 5s 81us/sample - loss: 0.4904 - accuracy: 0.8767 Epoch 4/5 60000/60000 [==============================] - 4s 59us/sample - loss: 0.4061 - accuracy: 0.8967 Epoch 5/5 60000/60000 [==============================] - 4s 59us/sample - loss: 0.3761 - accuracy: 0.9045 10000/1 - 0s - loss: 0.1850 - accuracy: 0.9370      [0.2977512352705002, 0.937] </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-56269.htm">Nodejs对数据库的增删改查</a></p>
+                                        <p>下一个：<a href="/news/article-56830.htm">PHP特质</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-46837.htm" title="发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包">发布nuget包的正确姿势&#8212;cicd自动打包发布nuget包</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-surge-node-github.htm" title="2月15日→20.4M/S|最新免费节点V2ray/Shadowrocket/SSR/Clash/Surge订阅链接地址">2月15日→20.4M/S|最新免费节点V2ray/Shadowrocket/SSR/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-surge-node-github.htm" title="11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-50873.htm" title="可以自己买疫苗给猫咪打吗（可以自己买猫疫苗让宠物店帮忙打吗?）">可以自己买疫苗给猫咪打吗（可以自己买猫疫苗让宠物店帮忙打吗?）</a></li>
+                        <li class="py-2"><a href="/news/article-44875.htm" title="springboot实现定时任务-Scheduling">springboot实现定时任务-Scheduling</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-surge-windows.htm" title="2月10日→20.7M/S|最新免费节点Clash/Shadowrocket/SSR/V2ray/Surge订阅链接地址">2月10日→20.7M/S|最新免费节点Clash/Shadowrocket/SSR/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20530.htm" title="医院动物实验中心干什么（医院动物实验室）">医院动物实验中心干什么（医院动物实验室）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-8-surge-node-github.htm" title="1月8日→22.9M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址">1月8日→22.9M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43385.htm" title="一个 Java8 的线程池 BUG 引发线上偶发 Bug 重现分析">一个 Java8 的线程池 BUG 引发线上偶发 Bug 重现分析</a></li>
+                        <li class="py-2"><a href="/news/article-36196.htm" title="动物防疫站打疫苗通知怎么写 动物防疫站打疫苗通知怎么写啊">动物防疫站打疫苗通知怎么写 动物防疫站打疫苗通知怎么写啊</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
