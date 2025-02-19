@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-59106.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue中同时监听多个参数的实现_vue.js</title>
+        <meta name="description" content="目录  如何同时监听多个参数  data中定义一个对象 完整代码  vue事件监听,条件判断  事件监听 v-on 条件判断     如何同时监听多个参数 vue使用watch同时监听多个参数，其中有" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-59106.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="vue中同时监听多个参数的实现_vue.js" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/6cc60a57e443165c31821e8e444249ff.webp" />
+        <meta property="og:release_date" content="2025-02-19T06:35:46" />
+    <meta property="og:updated_time" content="2025-02-19T06:35:46" />
+        <meta property="og:description" content="目录  如何同时监听多个参数  data中定义一个对象 完整代码  vue事件监听,条件判断  事件监听 v-on 条件判断     如何同时监听多个参数 vue使用watch同时监听多个参数，其中有" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中同时监听多个参数的实现_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">vue中同时监听多个参数的实现_vue.js</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">如何同时监听多个参数</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">data中定义一个对象</a></li> <li><a href="#_lab2_0_1" rel="nofollow">完整代码</a></li> </ul> <li><a href="#_label1" rel="nofollow">vue事件监听,条件判断</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_2" rel="nofollow">事件监听 v-on</a></li> <li><a href="#_lab2_1_3" rel="nofollow">条件判断</a></li> </ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>如何同时监听多个参数</h2> <p>vue使用watch同时监听多个参数，其中有任意一个参数发生改变时，都会被监听到需要使用到计算属性computed与监听watch</p> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>data中定义一个对象</h3> <div class="ay1code"> <pre class="brush:js;">data(){      return{          obj:{              name:'xpf',              gender:'male',              age:24      }      }  }</pre> </div> <ul> <li> <code>computed</code>中：将需要监听的参数放入一个新变量中</li> </ul> <div class="ay1code"> <pre class="brush:js;">computed:{      'newParams':function(){          const {name,age} = this.obj          return {name,age}      }      },</pre> </div> <ul> <li> <code>watch</code>中：监听新的变量</li> </ul> <div class="ay1code"> <pre class="brush:js;">watch:{      newParams:function(){          alert(1)      }  },</pre> </div> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>完整代码</h3> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html lang="en"&gt;  &lt;head&gt;      &lt;meta charset="UTF-8"&gt;      &lt;title&gt;watch同时监听多个属性&lt;/title&gt;      &lt;script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"&gt;&lt;/script&gt;  &lt;/head&gt;  &lt;body&gt;      &lt;div id="app"&gt;          &lt;div @click="changeObj"&gt;点我&lt;/div&gt;      &lt;/div&gt;          &lt;script&gt;          new Vue({              el:'#app',              data(){                  return{                      obj:{                          name:'xpf',                          gender:'male',                          age:24                      }                  }              },              computed:{                  'newParams':function(){                      const {name,age} = this.obj                      return {name,age}                  }                  },              watch:{                  newParams:function(){                      alert(1)                  }              },              methods:{                  changeObj(){                      // this.obj.name = 'xx'                      this.obj.age = 21                  }              }          })      &lt;/script&gt;  &lt;/body&gt;  &lt;/html&gt;</pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>vue事件监听,条件判断</h2> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>事件监听 v-on</h3> <p>语法糖@</p> <p><strong>1. 基本的使用法法</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">    &lt;div id="add"&gt;          点击次数{{counter}}           &lt;button @click = "add"&gt;+&lt;/button&gt; &lt;!--v-on:click = "" 语法糖  --&gt;          &lt;button @click = "dec"&gt;-&lt;/button&gt;      &lt;/div&gt;</pre> </div> <div class="ay1code"> <pre class="brush:js;">    &lt;script src="../js/vue.js"&gt;&lt;/script&gt;      &lt;script&gt;          const add = new Vue({              el:'#add',              data:{                  counter:0              },              methods:{                  add:function(){                      console.log('添加了');                      this.counter++                  },                  dec:function(){                      console.log('减少了');                      this.counter--                  }              }          })        &lt;/script&gt;</pre> </div> <p><strong>2. 事件监听带参数的使用方法</strong></p> <p>不带参数，写函数时，小括号可写可不写</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "one"&gt;按钮1&lt;/button&gt;  &lt;button @click = "one()"&gt;按钮2&lt;/button&gt;</pre> </div> <p>带有参数时，写函数时，小括号要写，传进的参数也要写</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "two"&gt;按钮2&lt;/button&gt; &lt;!-- 默认输出 浏览器生产的event事件对象 --&gt;  &lt;button @click = "two()"&gt;按钮3&lt;/button&gt; &lt;!-- 输出 undefind --&gt;  &lt;button @click = "two(123)"&gt;按钮4&lt;/button&gt;  &lt;!-- 输出 123  --&gt;</pre> </div> <p>即带参数有带event</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click = "three(123,$event) "&gt;按钮5&lt;/button&gt;</pre> </div> <p>在小括号里添加$event可即添加参数又添加event事假</p> <p><strong>3.事件对象的修饰符</strong></p> <ul> <li> <code>.stop</code>相当于事件对象的stopPropagaton，阻止冒泡事件</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div @click = "one"&gt;父亲        &lt;button @click.stop = "two"&gt;儿子&lt;/button&gt;      &lt;/div&gt;</pre> </div> <ul> <li> <code>.prevent</code>阻止默认事件 preventDefault</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;a href="https://www.baidu.com/"   @click.prevent = "two"&gt;百度一下&lt;/a&gt;</pre> </div> <ul> <li> <code>keyup</code>监听某个键盘键帽</li> <li> <code>.enter</code>只监听回车键</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;input type="text" @keyup= "two"&gt;  &lt;input type="text" @keyup.enter = "two"&gt;</pre> </div> <ul> <li> <code>.once</code>只监听一次</li> </ul> <div class="ay1code"> <pre class="brush:xhtml;">&lt;button @click.once = "two"&gt;按钮&lt;/button&gt;</pre> </div> <p class="maodian"><a name="_lab2_1_3" rel="nofollow"></a></p> <h3>条件判断</h3> <p><strong>1.v-if的基本使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div id="add"&gt;      &lt;div v-if = "true"&gt;{{message}}&lt;/div&gt;      &lt;div v-if = "false"&gt;{{name}}&lt;/div&gt;         &lt;div v-if = "isShow"&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;        &lt;h2&gt;ccc&lt;/h2&gt;      &lt;/div&gt;</pre> </div> <p>为true显示，为false隐藏，可设置一个变量isShow来控制</p> <p><strong>2.v-if和v-else使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;"> &lt;div id="add"&gt;      &lt;h2 v-if = "isShow"&gt;我是你爸爸&lt;/h2&gt;      &lt;h2 v-else&gt;不，我才是你爸爸&lt;/h2&gt;    &lt;/div&gt;</pre> </div> <p>两者只能显示一个当变量isShow为true时，else隐藏，同理相反</p> <p><strong>3.v-if和v-else-if和v-lese使用</strong></p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;h2 v-if = "message &gt;=90"&gt; 优秀 &lt;/h2&gt;   &lt;h2 v-else-if = "message &gt;=80"&gt; 良好 &lt;/h2&gt;   &lt;h2 v-else-if = "message &gt;=70"&gt; 及格 &lt;/h2&gt;   &lt;h2 v-else&gt; 不及格 &lt;/h2&gt;</pre> </div> <p>3个结合可读性差，不建议</p> <p>可在computed里封装一个函数</p> <div class="ay1code"> <pre class="brush:js;"> computed: {          result(){            let num = " "            if (this.message &gt;=90) {              num = '优秀'            }else if(this.message &gt;= 80){              num = '良好'            }else{              num = "不及格"            }            return num          }        }</pre> </div> <p>在调用，可读性较好 </p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58657.htm">JavaScript-2-类型转换、null和undefined的注意点</a></p>
+                                        <p>下一个：<a href="/news/article-59107.htm">重庆哪里可以领养宠物猫咪（重庆哪里可以领养宠物猫咪的）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-3-free-node-subscribe.htm" title="2月3日→20M/S|最新免费节点SSR/Clash/Shadowrocket/V2ray/Surge订阅链接地址">2月3日→20M/S|最新免费节点SSR/Clash/Shadowrocket/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-54066.htm" title="宠物猫疫苗大概多少钱（宠物猫疫苗大概多少钱一针）">宠物猫疫苗大概多少钱（宠物猫疫苗大概多少钱一针）</a></li>
+                        <li class="py-2"><a href="/news/article-42895.htm" title="gofs使用教程基于golang的开源跨平台文件同步工具">gofs使用教程基于golang的开源跨平台文件同步工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-surge-node-share.htm" title="12月14日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址">12月14日→21.5M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-38428.htm" title="Parquet 之mapreduce">Parquet 之mapreduce</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-node-share-links.htm" title="2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43879.htm" title="宠物狗粮销售招聘要求（狗粮招聘业务）">宠物狗粮销售招聘要求（狗粮招聘业务）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-free-high-speed-nodes.htm" title="11月24日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月24日→20.9M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27458.htm" title="动物疫苗打几次有效 动物疫苗打几次有效果">动物疫苗打几次有效 动物疫苗打几次有效果</a></li>
+                        <li class="py-2"><a href="/news/article-45380.htm" title="宠物领养协议书电子版模板下载 宠物领养协议书电子版模板下载安装">宠物领养协议书电子版模板下载 宠物领养协议书电子版模板下载安装</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

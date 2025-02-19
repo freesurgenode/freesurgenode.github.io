@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-58657.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>JavaScript-2-类型转换、null和undefined的注意点</title>
+        <meta name="description" content="数据类型：number、string、boolean、null、undefined、object 1. number ==&gt; string +‘’ 、String(number) 、number" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-58657.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="JavaScript-2-类型转换、null和undefined的注意点" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/4eed814e903fb51488e9eb0a2c34d299.webp" />
+        <meta property="og:release_date" content="2025-02-18T09:44:43" />
+    <meta property="og:updated_time" content="2025-02-18T09:44:43" />
+        <meta property="og:description" content="数据类型：number、string、boolean、null、undefined、object 1. number ==&gt; string +‘’ 、String(number) 、number" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript-2-类型转换、null和undefined的注意点">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">JavaScript-2-类型转换、null和undefined的注意点</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>数据类型：number、string、boolean、null、undefined、object</p> <h4><a id="1_number__string_1" rel="nofollow"></a>1. number ==&gt; string</h4> <p>+‘’ 、String(number) 、number.toString()</p> <pre><code>var a=12; var b=13; console.log(a+''+b,typeof(a+''+b)) /* 1213 string  */ console.log(a.toString()+b,typeof(a.toString()+b)); /* 1213 string */ console.log(String(a)+11,typeof (String(a)+11)); /* 1211 string */</code></pre> <h4><a id="2_string__number_11" rel="nofollow"></a>2. string ==&gt; number</h4> <p>Number()、+string、-string、parseFloat(s) 保留全部<br /> ~~string、parseInt(s) 只保留整数</p> <pre><code>var s1='12.9'; console.log(parseInt(s1)+1); /* 13 */ console.log(parseFloat(s1)+1);  /* 13.9 */ console.log(Number(s1)+1); /* 13.9 */   var s3='12.9'; console.log(+s3+1); /* 13.9 */ console.log(-s3+1); /* 11.9 */ console.log(~~s3); /* 12 */</code></pre> <p>Number() 和 parseFloat() 区别：</p> <pre><code>var s2='12.9abc'; console.log(parseFloat(s2)); /* 12.9 */ console.log(Number(s2)); /* NaN ： not a number 非数字*/</code></pre> <p><strong>ps：不过NaN为number的一种，即typeof NaN为number</strong><br /> 注意NaN的特殊：</p> <pre><code>console.log(Number==Number); /* true */ console.log(null==null);  /* true */ console.log(undefined==undefined); /* true */ console.log(NaN==NaN); /* false */ console.log(typeof NaN); /* number */</code></pre> <h4><a id="3_numberstring__boolean_44" rel="nofollow"></a>3. number、string ==&gt; boolean</h4> <p>Boolean()、!!number/string</p> <pre><code>var a=0,b=1,s1='',s2='hello',s3=null,s4=undefined; console.log(Boolean(a)); /* false */ console.log(Boolean(b)); /* true */ console.log(Boolean(s1)); /* false */ console.log(Boolean(s2)); /* true */ console.log(Boolean(s3)); /* false */ console.log(Boolean(s4)); /* false */ console.log(!!b); /* true */ console.log(!!s4); /* false */</code></pre> <h4><a id="4_boolean_number_59" rel="nofollow"></a>4. boolean==&gt; number</h4> <pre><code>console.log(false+1); /* 1 */ console.log(true+1); /* 2 */</code></pre> <h4><a id="5__65" rel="nofollow"></a>5. 注意</h4> <p>【有些想测试的还没测。。。感兴趣的可以测一下】</p> <pre><code>console.log(undefined); /* undefined */ console.log(null); /* null */ console.log(undefined==null); /* true */ console.log(undefined==false); /* false */ console.log(!!undefined==false); /* true */ console.log(NaN==NaN); /* false */</code></pre> <blockquote> <p>【解释为什么console.log(undefined<mark>null); /* true */】（有的说undefined</mark>null是因为null为object，而undefined为类型，是null一特殊存在，不过好像最初是这样用，现在摒弃了。。。但不确定这样说对不对。。。）<br /><strong>null</strong> 表示 “没有对象”，即该处不应该有值（典型用法：（1）作为函数的参数，表示该函数的参数不是对象；（2）作为对象原型链的终点。（这里不是很懂QAQ。。。））<br /><strong>undefined</strong>表示“缺少值“，即此处该有个值，但是没有定义（典型用法：（1）变量被声明了，但没有赋值时，就等于undefined；（2）调用函数时，应该提供的参数没有提供，该参数等于undefined；（3）对象没有赋值的属性，该属性的值为undefined；（4）函数没有返回值时，默认返回undefined）</p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-58656.htm">如何根据不在结果集中的列对MySQL输出进行排序？</a></p>
+                                        <p>下一个：<a href="/news/article-59106.htm">vue中同时监听多个参数的实现_vue.js</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-29325.htm" title="国内兽药厂家前50名有 国内兽药厂家前50名有哪些">国内兽药厂家前50名有 国内兽药厂家前50名有哪些</a></li>
+                        <li class="py-2"><a href="/news/article-28856.htm" title="关于Java 信号量 Semaphore">关于Java 信号量 Semaphore</a></li>
+                        <li class="py-2"><a href="/news/article-48272.htm" title="猫的疫苗可以自己打吗?（猫的疫苗可以自己打吗安全吗）">猫的疫苗可以自己打吗?（猫的疫苗可以自己打吗安全吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-6-surge-node-share.htm" title="2月6日→21.3M/S|最新免费节点SSR/V2ray/Clash/Shadowrocket/Surge订阅链接地址">2月6日→21.3M/S|最新免费节点SSR/V2ray/Clash/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-free-node-subscribe-links.htm" title="1月15日→19.4M/S|最新免费节点Clash/SSR/Shadowrocket/V2ray/Surge订阅链接地址">1月15日→19.4M/S|最新免费节点Clash/SSR/Shadowrocket/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-node-share-links.htm" title="2月16日→19.7M/S|最新免费节点V2ray/Clash/Shadowrocket/SSR/Surge订阅链接地址">2月16日→19.7M/S|最新免费节点V2ray/Clash/Shadowrocket/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-surge-node-github.htm" title="11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址">11月8日→22.1M/S|2024年最新免费节点Free Surge Node订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-subscribe-node.htm" title="2月2日→18.7M/S|最新免费节点Shadowrocket/Clash/SSR/V2ray/Surge订阅链接地址">2月2日→18.7M/S|最新免费节点Shadowrocket/Clash/SSR/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-25138.htm" title="golang常用库包：Go依赖注入(DI)工具-wire使用">golang常用库包：Go依赖注入(DI)工具-wire使用</a></li>
+                        <li class="py-2"><a href="/news/article-37445.htm" title="2021动物疫苗行业前景（动物疫苗发展前景）">2021动物疫苗行业前景（动物疫苗发展前景）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">91</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
