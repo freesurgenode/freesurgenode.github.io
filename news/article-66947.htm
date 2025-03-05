@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-66947.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spring Cloud Feign 请求添加headers</title>
+        <meta name="description" content="目录  方案一：方法上的@RequestMapping注解添加headers信息 方案二：接口上的@RequestMapping注解添加headers信息 方案三：使用@Headers注解添加head" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-66947.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Spring Cloud Feign 请求添加headers" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/fd8cc9fa7d0858a8ff18cd5b97883a0e.webp" />
+        <meta property="og:release_date" content="2025-03-04T10:14:00" />
+    <meta property="og:updated_time" content="2025-03-04T10:14:00" />
+        <meta property="og:description" content="目录  方案一：方法上的@RequestMapping注解添加headers信息 方案二：接口上的@RequestMapping注解添加headers信息 方案三：使用@Headers注解添加head" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spring Cloud Feign 请求添加headers">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">Spring Cloud Feign 请求添加headers</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-dracula"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#RequestMappingheaders_2" rel="nofollow">方案一：方法上的@RequestMapping注解添加headers信息</a></li> <li><a href="#RequestMappingheaders_14" rel="nofollow">方案二：接口上的@RequestMapping注解添加headers信息</a></li> <li><a href="#Headersheaders_25" rel="nofollow">方案三：使用@Headers注解添加headers信息</a></li> <li><a href="#RequestInterceptorheaders_37" rel="nofollow">方案四：自定义RequestInterceptor添加headers信息</a></li> <li><a href="#RequestInterceptorheader_56" rel="nofollow">方案五：自定义RequestInterceptor实现添加动态数据到header</a></li> </ul> </div> </h1> <p>@RequestMapping注解的属性中包含一个headers数组，所以尝试使用，在指定的方法上@RequestMapping注解中添加需要的headers，可以是写死的，也可以读取配置，测试是有效的</p> <p>同理@RequestMapping一组的@PostMapping，@GetMapping注解等均适用</p> <pre><code class="prism language-bash">@FeignClient<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"server"</span>,url<span class="token operator">=</span><span class="token string">"127.0.0.1:8080"</span><span class="token punctuation">)</span> public interface FeignTest<span class="token punctuation">{<!-- --></span>     @RequestMapping<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/test"</span>,headers<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"app=test-app"</span>,<span class="token string">"token=<span class="token variable">${test-app.token}</span>"</span><span class="token punctuation">}</span><span class="token punctuation">)</span>     String test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </h1> <p>针对单个方法可以在方法上的@RequestMapping注解中添加headers，如果同一个接口中所有的方法都需要同样的headers时在方法上加就比较繁琐了，可以在接口上的@RequestMapping注解中添加headers，使整个接口的方法均被添加同样的headers</p> <pre><code class="prism language-bash">@FeignClient<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"server"</span>,url<span class="token operator">=</span><span class="token string">"127.0.0.1:8080"</span><span class="token punctuation">)</span> @RequestMapping<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/"</span>,headers<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">"app=test-app"</span>,<span class="token string">"token=<span class="token variable">${test-app.token}</span>"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> public interface FeignTest<span class="token punctuation">{<!-- --></span>     @RequestMapping<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/test"</span><span class="token punctuation">)</span>     String test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> </h1> <pre><code class="prism language-bash">@FeignClient<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"server"</span>,url<span class="token operator">=</span><span class="token string">"127.0.0.1:8080"</span><span class="token punctuation">)</span> @Headers<span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token string">"app: test-app"</span>,<span class="token string">"token:<span class="token variable">${test-app.token}</span>"</span><span class="token punctuation">}</span><span class="token punctuation">)</span> public interface FeignTest<span class="token punctuation">{<!-- --></span>     @RequestMapping<span class="token punctuation">(</span>value<span class="token operator">=</span><span class="token string">"/test"</span><span class="token punctuation">)</span>     String test<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre> <p>查看openfeign官方文档发现其使用的是@Headers来添加headers，测试发现并没有生效，spring cloud使用了自己的SpringMvcContract来解析注解，所以需要自己实现一个Contract来实现对@Headers注解的支持，具体实现参照https://juejin.im/post/6844903961653149709</p> </h1> <p>feign提供了一个拦截器接口RequestInterceptor，实现RequestInterceptor接口就可以实现对feign请求的拦截，接口提供了一个方法apply()，实现apply()方法</p> <pre><code class="prism language-bash">@Component public class FeignRequestInterceptor implements RequestInterceptor<span class="token punctuation">{<!-- --></span>      @Value<span class="token punctuation">(</span><span class="token string">"<span class="token variable">${test-app.token}</span>"</span><span class="token punctuation">)</span>     private String token<span class="token punctuation">;</span>          @Override     public void apply<span class="token punctuation">(</span>RequestTemplate requestTemplate<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         requestTemplate.header<span class="token punctuation">(</span><span class="token string">"app"</span>,<span class="token string">"test-app"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//静态         requestTemplate.header<span class="token punctuation">(</span><span class="token string">"token"</span>,token<span class="token punctuation">)</span><span class="token punctuation">;</span>//读配置<span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> <p>实现apply()方法直接添加header会拦截所有的请求都加上headers，如果不是所有的feign请求都需要用到不建议此方法</p> </h1> <p>以上方案都不适合把动态的数据放入headers中，而通常场景下可能经常需要把计算的签名，用户id等动态信息设置到headers，所以还需要一个更加完善的方案。方案1/2/3均不能设置动态的值，方案4可以设置动态值，但是没做到请求的区分，所以在方案4的基础上进行改进得到了较为完善的方案5。具体实现如下：</p> <p>在请求调用代码中，获取到HttpServletRequest对象，将需要添加到headers中的值封装成一个map后放入HttpServletRequest的attribute域中</p> <pre><code class="prism language-bash">ServletRequestAttributes attributes<span class="token operator">=</span><span class="token punctuation">(</span>ServletRequestAttributes<span class="token punctuation">)</span> RequestContextHolder.getRequestAttributes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> HttpServletRequest request<span class="token operator">=</span> Objects.requireNonNull<span class="token punctuation">(</span>attributes<span class="token punctuation">)</span>.getRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> String signedMsg<span class="token operator">=</span> getSignedMsg<span class="token punctuation">(</span>reqJson<span class="token punctuation">)</span><span class="token punctuation">;</span> // 计算签名字符串 Map<span class="token operator">&lt;</span>String, String<span class="token operator">&gt;</span> reqMap<span class="token operator">=</span> new HashMap<span class="token operator">&lt;&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> reqMap.put<span class="token punctuation">(</span><span class="token string">"content-type"</span>,<span class="token string">"application/json"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>//常量字段 reqMap.put<span class="token punctuation">(</span><span class="token string">"accessKey"</span>, accessKey<span class="token punctuation">)</span><span class="token punctuation">;</span>//常量字段 reqMap.put<span class="token punctuation">(</span><span class="token string">"signedMsg"</span>, signedMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>//动态计算/获取字段 request.setAttribute<span class="token punctuation">(</span><span class="token string">"customizedRequestHeader"</span>, reqMap<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>在自定义RequestInterceptor中获取到HttpServletRequest对象的attribute域中指定的key，将key对应map中的所有参数加入到headers。</p> <pre><code class="prism language-bash">@Component public class FeignRequestInterceptor implements RequestInterceptor<span class="token punctuation">{<!-- --></span>      @Override     public void apply<span class="token punctuation">(</span>RequestTemplate requestTemplate<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>         ServletRequestAttributes attributes<span class="token operator">=</span><span class="token punctuation">(</span>ServletRequestAttributes<span class="token punctuation">)</span> RequestContextHolder.getRequestAttributes<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         HttpServletRequest request<span class="token operator">=</span> attributes.getRequest<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          // 设置自定义header         // 设置request中的attribute到header以便转发到Feign调用的服务         Enumeration<span class="token operator">&lt;</span>String<span class="token operator">&gt;</span> reqAttrbuteNames<span class="token operator">=</span> request.getAttributeNames<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span>reqAttrbuteNames<span class="token operator">!=</span> null<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">while</span><span class="token punctuation">(</span>reqAttrbuteNames.hasMoreElements<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">{<!-- --></span>                 String attrName<span class="token operator">=</span> reqAttrbuteNames.nextElement<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token string">"customizedRequestHeader"</span>.equalsIgnoreCase<span class="token punctuation">(</span>attrName<span class="token punctuation">))</span><span class="token punctuation">{<!-- --></span><span class="token builtin class-name">continue</span><span class="token punctuation">;</span><span class="token punctuation">}</span>                 Map<span class="token operator">&lt;</span>String,String<span class="token operator">&gt;</span> requestHeaderMap<span class="token operator">=</span><span class="token punctuation">(</span>Map<span class="token punctuation">)</span>request.getAttribute<span class="token punctuation">(</span>attrName<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">for</span><span class="token punctuation">(</span>Map.Entry<span class="token operator">&lt;</span>String, String<span class="token operator">&gt;</span> entry<span class="token builtin class-name">:</span> requestHeaderMap.entrySet<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">{<!-- --></span>                     requestTemplate.header<span class="token punctuation">(</span>entry.getKey<span class="token punctuation">(</span><span class="token punctuation">)</span>, entry.getValue<span class="token punctuation">(</span><span class="token punctuation">))</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token builtin class-name">break</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-66311.htm">宠物店粮食一个月要多少钱合适 宠物店粮食一个月要多少钱合适呢</a></p>
+                                        <p>下一个：<a href="/news/article-66948.htm">动物医院好评模板范文图片高清（动物医院大众点评评语）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-55707.htm" title="广州宠物领养平台有哪些地方 广州宠物领养平台有哪些地方可以申请">广州宠物领养平台有哪些地方 广州宠物领养平台有哪些地方可以申请</a></li>
+                        <li class="py-2"><a href="/news/article-40414.htm" title="Python实现双X轴双Y轴绘图">Python实现双X轴双Y轴绘图</a></li>
+                        <li class="py-2"><a href="/news/article-55154.htm" title="Django 之视图url参数获取">Django 之视图url参数获取</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-28-free-surge-node.htm" title="1月28日→22.4M/S|最新免费节点V2ray/Shadowrocket/Clash/SSR/Surge订阅链接地址">1月28日→22.4M/S|最新免费节点V2ray/Shadowrocket/Clash/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49836.htm" title="宠物粮行业环境分析论文 宠物粮行业环境分析论文怎么写">宠物粮行业环境分析论文 宠物粮行业环境分析论文怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-65689.htm" title="延吉兽医医院在哪 延吉兽医医院在哪个位置">延吉兽医医院在哪 延吉兽医医院在哪个位置</a></li>
+                        <li class="py-2"><a href="/news/article-50362.htm" title="十大动物疫苗公司有哪些品牌的 十大动物疫苗公司有哪些品牌的">十大动物疫苗公司有哪些品牌的 十大动物疫苗公司有哪些品牌的</a></li>
+                        <li class="py-2"><a href="/news/article-58657.htm" title="JavaScript-2-类型转换、null和undefined的注意点">JavaScript-2-类型转换、null和undefined的注意点</a></li>
+                        <li class="py-2"><a href="/news/article-53518.htm" title="字符集与编码详解">字符集与编码详解</a></li>
+                        <li class="py-2"><a href="/news/article-37953.htm" title="免费领养宠物的软件下载（免费领养宠物的小程序）">免费领养宠物的软件下载（免费领养宠物的小程序）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
