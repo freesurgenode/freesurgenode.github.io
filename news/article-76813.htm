@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-76813.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PHP索引数组详解</title>
+        <meta name="description" content="定义和用法 仅用逗号分隔的值序列，而不是key =&gt; value对。这样的集合中的每个元素都有一个从0开始的唯一位置索引。因此，它称为&nbsp;索引数组。 可以通过array()函数初始化索引" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-76813.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="PHP索引数组详解" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/4834b0aa60083d339e433f6b7cc01f84.webp" />
+        <meta property="og:release_date" content="2025-03-19T09:08:53" />
+    <meta property="og:updated_time" content="2025-03-19T09:08:53" />
+        <meta property="og:description" content="定义和用法 仅用逗号分隔的值序列，而不是key =&gt; value对。这样的集合中的每个元素都有一个从0开始的唯一位置索引。因此，它称为&nbsp;索引数组。 可以通过array()函数初始化索引" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PHP索引数组详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">PHP索引数组详解</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<h2>定义和用法</h2> <p>仅用逗号分隔的值序列，而不是key =&gt; value对。这样的集合中的每个元素都有一个从0开始的唯一位置索引。因此，它称为<strong>&nbsp;索引数组。</strong></p> <p>可以通过<strong>array()</strong>函数初始化索引的Array对象，也可以通过将元素放在方括号<strong>[]中来进行</strong>赋值<strong>。</strong></p> <h2>语法</h2> <pre>//Indexed&nbsp;array&nbsp;using&nbsp;array()&nbsp;function $arr=array(val1,&nbsp;val2,val3,..); //Indexed&nbsp;array&nbsp;using&nbsp;assignment&nbsp;method $arr=[val1,&nbsp;val2,&nbsp;val3,..];</pre> <p>数组中的元素可以是任何PHP类型。我们可以使用以下语法通过数组的索引访问元素：</p> <pre>$arr[index];</pre> <h2>PHP版本</h2> <p>从PHP 5.4开始就可以使用方括号来分配数组</p> <p>以下示例使用方括号创建索引数组</p> <h2>示例</h2> <pre>&lt;?php $arr=[10,&nbsp;"ten",10.0,&nbsp;1.0E1]; var_dump($arr); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>array(4)&nbsp;{ &nbsp;&nbsp;&nbsp;[0]=&gt; &nbsp;&nbsp;&nbsp;int(10) &nbsp;&nbsp;&nbsp;[1]=&gt; &nbsp;&nbsp;&nbsp;string(3)&nbsp;"ten" &nbsp;&nbsp;&nbsp;[2]=&gt; &nbsp;&nbsp;&nbsp;float(10) &nbsp;&nbsp;&nbsp;[3]=&gt; &nbsp;&nbsp;&nbsp;float(10) }</pre> <p>本示例使用array()函数创建索引数组</p> <h2>示例</h2> <pre>&lt;?php $arr=array(10,&nbsp;"ten",10.0,&nbsp;1.0E1); var_dump($arr); ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>array(4)&nbsp;{ &nbsp;&nbsp;&nbsp;[0]=&gt; &nbsp;&nbsp;&nbsp;int(10) &nbsp;&nbsp;&nbsp;[1]=&gt; &nbsp;&nbsp;&nbsp;string(3)&nbsp;"ten" &nbsp;&nbsp;&nbsp;[2]=&gt; &nbsp;&nbsp;&nbsp;float(10) &nbsp;&nbsp;&nbsp;[3]=&gt; &nbsp;&nbsp;&nbsp;float(10) }</pre> <p>我们可以使用<strong>foreach</strong>循环以及<strong>for</strong>循环遍历数组元素，如下所示：</p> <h2>示例</h2> <pre>&lt;?php $arr=array(10,&nbsp;"ten",10.0,&nbsp;1.0E1); //using&nbsp;for&nbsp;loop.&nbsp;Use&nbsp;count()&nbsp;function&nbsp;to&nbsp;determine&nbsp;array&nbsp;size. for&nbsp;($i=0;$i&nbsp;&lt;&nbsp;count($arr);&nbsp;$i++){ &nbsp;&nbsp;&nbsp;echo&nbsp;$arr[$i]&nbsp;.&nbsp;"&nbsp;"; } echo&nbsp;"\n"; //using&nbsp;foreach&nbsp;loop foreach($arr&nbsp;as&nbsp;$i){ &nbsp;&nbsp;&nbsp;echo&nbsp;$i&nbsp;.&nbsp;"&nbsp;"; } ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>10&nbsp;ten&nbsp;10&nbsp;10 10&nbsp;ten&nbsp;10&nbsp;10</pre> <p>本示例显示使用方括号在某些索引处修改值。要添加新元素，请保持方括号为空，以便将下一个可用整数用作索引</p> <h2>示例</h2> <pre>&lt;?php $arr=array(10,&nbsp;"ten",10.0,&nbsp;1.0E1); //modify&nbsp;existing&nbsp;element&nbsp;using&nbsp;index $arr[3]="Hello"; //add&nbsp;new&nbsp;element&nbsp;using&nbsp;next&nbsp;index $arr[]=100; for&nbsp;($i=0;&nbsp;$i&lt;&nbsp;count($arr);&nbsp;$i++){ &nbsp;&nbsp;&nbsp;echo&nbsp;$arr[$i]; } ?&gt;</pre> <p>输出结果</p> <p>这将产生以下结果-</p> <pre>10&nbsp;ten&nbsp;10&nbsp;Hello&nbsp;100</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76142.htm">加盟什么项目好呢（加盟个什么合适）</a></p>
+                                        <p>下一个：<a href="/news/article-76814.htm">动物疫苗政府采购（动物疫苗政府采购抽什么专家）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36967.htm" title="Spirngboot实现Nacos作为配置中心_在线工具">Spirngboot实现Nacos作为配置中心_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-surge-node-github.htm" title="3月5日→18.8M/S|最新免费节点Shadowrocket/Clash/V2ray/SSR/Surge订阅链接地址">3月5日→18.8M/S|最新免费节点Shadowrocket/Clash/V2ray/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-64443.htm" title="属蛇人养猫会影响运势吗（属蛇的人养猫好不好）">属蛇人养猫会影响运势吗（属蛇的人养猫好不好）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-node-share-links.htm" title="2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-49835.htm" title="宠物批发商城在哪（宠物批发在哪里）">宠物批发商城在哪（宠物批发在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-20-node-share-links.htm" title="2月20日→18.8M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址">2月20日→18.8M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-node-share.htm" title="2月18日→18.7M/S|最新免费节点Shadowrocket/Clash/SSR/V2ray/Surge订阅链接地址">2月18日→18.7M/S|最新免费节点Shadowrocket/Clash/SSR/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-19-free-node-subscribe-links.htm" title="1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">1月19日→22.3M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-58656.htm" title="如何根据不在结果集中的列对MySQL输出进行排序？">如何根据不在结果集中的列对MySQL输出进行排序？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-latest-surge-node.htm" title="1月31日→19.9M/S|最新免费节点SSR/Clash/V2ray/Shadowrocket/Surge订阅链接地址">1月31日→19.9M/S|最新免费节点SSR/Clash/V2ray/Shadowrocket/Surge订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">59</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
