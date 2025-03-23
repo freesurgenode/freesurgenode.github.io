@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-78858.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vue3中 setup注意点</title>
+        <meta name="description" content="setup执行的时机：在beforeCreate之前执行一次，this是undefined。   setup参数（只能收到2个）： 1 props:值 为对象，包含：组件外部传递过来，且组件内部声明接" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-78858.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="vue3中 setup注意点" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/469d3dd77063b63d7e662d1744c15146.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:46:46" />
+    <meta property="og:updated_time" content="2025-03-22T08:46:46" />
+        <meta property="og:description" content="setup执行的时机：在beforeCreate之前执行一次，this是undefined。   setup参数（只能收到2个）： 1 props:值 为对象，包含：组件外部传递过来，且组件内部声明接" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue3中 setup注意点">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">vue3中 setup注意点</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/51d7d21338dd6446ebb64ecb940fb2b9.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setupbeforeCreatethisundefined_2" rel="nofollow"></a>setup执行的时机：<strong>在beforeCreate之前</strong>执行一次，this是undefined。</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/e109070af736a563ff14cf9808464c0e.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/7f59997885b93f934e04df213fcf4a78.jpg" alt="vue3中 setup注意点"></p> <h2><a id="setup2_7" rel="nofollow"></a>setup参数（只能收到2个）：</h2> <p>1 props:值 为对象，包含：组件外部传递过来，且组件内部声明接收了的属性。<br /> 2 context：上下文对象。<br /> （1）attrs: 值为对象，包含：组件外部传递过来，但没有在props配置中声明的属性，相当于this. $attrs。<br /> （2）slots: 收到的插槽内容，相当于this. $slots。<br /> （3）emit: 分发自定义事件的函数，相当于 this. $emit。</p> <p>解析<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/3844f8754633a776a317e4193d15d92a.jpg" alt="vue3中 setup注意点"><br /> 注意的是setup接收参数的时候，必须有props接收声明，否则就会警告，跟vue2是不一样的。</p> <p>context是一个对象<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/faa46bf168d6417f50ed2b4fe79f7b4c.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/f9192d3f34b9a702ca29a4e4ec012d14.jpg" alt="vue3中 setup注意点"><br /> 传值事件上也是不一样的。<br /> 父组件App<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/0d67d234be16b3e7c763292cfc32627d.jpg" alt="vue3中 setup注意点"><br /> 子组件<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/6588715fb22bb75972890375d9a55f4b.jpg" alt="vue3中 setup注意点"><br /> 插槽 建议直接用 v-slot: slot名<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/a2b5cd4237f07cbed5941c55d93b0123.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/937dc7080fa1eb73beefcb65ea1aec61.jpg" alt="vue3中 setup注意点"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/822697f7aac570a4ca74022abcc94395.jpg" alt="vue3中 setup注意点"></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220721/92093f0ee63555a90ee8aeb4a01d13cc.jpg" alt="vue3中 setup注意点"></p> <p>vue3的生命周期钩子函数后边在说。</p> <p>我们在看一下<strong>vue2 的 知识点。</strong><br /><strong>插槽：</strong> slot可以给组件动态插入一些内容或组件，是实现高阶函数的重要途径，当需要多个插槽时，可使用具名插槽slot。<br /> 父子组件传值 props / this.$emit<br /><strong>父组件向子组件传值</strong>：在子组件标签上绑定自定义属性名(:child = ‘value’)，值是父组件要传递的数据，在子组件内部通过<strong>props</strong> 属性来接收 ‘自定义属性名’，页面在展示上，通过接收的 {<!-- -->{属性名}} 显示。（父子之间是上下传值）<br /><strong>子组件向父组件传值</strong>：在子组件标签上绑定自定义事件(@change= ‘change’)，子组件内部通过 $emit 给该事件推送数据<strong>(this. $emit</strong>(‘绑定的自定义事件名’,this.数据))。父组件内部通过“函数参数”接收。（子组件之间是平行传值）</p> <pre><code>&lt;fu&gt; 	&lt;zi :isdel=”fuvalue” @ziuser=”fudel”&gt;&lt;/zi&gt; 	Methods:{ 		Fudel(value){ Console.log(value) } 	} &lt;/fu&gt; &lt;zi @click=”user”&gt; 	props:{isdel:{对象形式}} 或者 props:[“isdel”] 	methods:{ 		User(){this.$emit(“ziuser”,’this.value’) } 	} &lt;/zi&gt;</code></pre> <h2><a id="vue2_58" rel="nofollow"></a>vue2生命周期钩子函数以及每个阶段的作用</h2> <p><strong>vue实例有一个完整的生命周期，生命周期也就是指一个实例从开始创建到销毁的这个过程;</strong><br /> 常用的</p> <pre><code>beforeCreate() 在实例创建之间执行，数据未加载状态/  created() 在实例创建、数据加载后，能初始化数据，dom渲染之前执行/  beforeMount() 虚拟dom已创建完成，在数据渲染前最后一次更改数据/  mounted() 页面、数据渲染完成，真实dom挂载完成/  beforeUpadate() 重新渲染之前触发/  updated() 数据已经更改完成，dom 也重新 render 完成,更改数据/  beforeDestory() 是销毁前执行（实例仍然完全可用）/  destoryed() 则是销毁后执行/  keep-alive 缓存。</code></pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78175.htm">动物医疗许可证申领须具备哪些条件（动物诊疗许可证办理动物医院）</a></p>
+                                        <p>下一个：<a href="/news/article-78859.htm">兰州哪里买宠物兔便宜（兰州买兔子）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-27-surge-windows.htm" title="1月27日→21.5M/S|最新免费节点SSR/V2ray/Clash/Shadowrocket/Surge订阅链接地址">1月27日→21.5M/S|最新免费节点SSR/V2ray/Clash/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-surge-node.htm" title="2月22日→21.9M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">2月22日→21.9M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-11-free-subscribe-node.htm" title="2月11日→22.7M/S|最新免费节点Shadowrocket/V2ray/Clash/SSR/Surge订阅链接地址">2月11日→22.7M/S|最新免费节点Shadowrocket/V2ray/Clash/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-60844.htm" title="女生学动物医学好吗就业前景及方向是什么（女生学动物医学专业怎么样）">女生学动物医学好吗就业前景及方向是什么（女生学动物医学专业怎么样）</a></li>
+                        <li class="py-2"><a href="/news/article-46838.htm" title="AOT和单文件发布对程序性能的影响">AOT和单文件发布对程序性能的影响</a></li>
+                        <li class="py-2"><a href="/news/article-41903.htm" title="我所在的城市有一家宠物医院的英语呸 我所在的城市里有一家宠物医院英文">我所在的城市有一家宠物医院的英语呸 我所在的城市里有一家宠物医院英文</a></li>
+                        <li class="py-2"><a href="/news/article-51918.htm" title="新疆养狗基地（新疆大型犬基地）">新疆养狗基地（新疆大型犬基地）</a></li>
+                        <li class="py-2"><a href="/news/article-59106.htm" title="vue中同时监听多个参数的实现_vue.js">vue中同时监听多个参数的实现_vue.js</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-node-share-links.htm" title="2月16日→19.7M/S|最新免费节点V2ray/Clash/Shadowrocket/SSR/Surge订阅链接地址">2月16日→19.7M/S|最新免费节点V2ray/Clash/Shadowrocket/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-41902.htm" title="三国杀武将台词语音包下载（三国杀角色台词语音）">三国杀武将台词语音包下载（三国杀角色台词语音）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">68</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
