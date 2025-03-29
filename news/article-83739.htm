@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-83739.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法</title>
+        <meta name="description" content="目录  一、问题描述 二、原因分析 三、解决办法     在学习使用Kafka时，为了方便，写了一个群里脚本，用于同时启动所有虚拟机端的Kafka，群起的脚本如下：  #!/bin/bashcase$" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-83739.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/e0477254ed8d78bd52b2680833ceceb6.webp" />
+        <meta property="og:release_date" content="2025-03-29T08:59:23" />
+    <meta property="og:updated_time" content="2025-03-29T08:59:23" />
+        <meta property="og:description" content="目录  一、问题描述 二、原因分析 三、解决办法     在学习使用Kafka时，为了方便，写了一个群里脚本，用于同时启动所有虚拟机端的Kafka，群起的脚本如下：  #!/bin/bashcase$" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#_1" rel="nofollow">一、问题描述</a></li> <li><a href="#_34" rel="nofollow">二、原因分析</a></li> <li><a href="#_50" rel="nofollow">三、解决办法</a></li> </ul> </div> </h1> <ul> <li>在学习使用Kafka时，为了方便，写了一个群里脚本，用于同时启动所有虚拟机端的Kafka，群起的脚本如下：</li> </ul> <pre><code class="prism language-bash"><span class="token shebang important">#!/bin/bash</span><span class="token keyword">case</span><span class="token variable">$1</span><span class="token keyword">in</span><span class="token string">"start"</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">for</span> i<span class="token keyword">in</span> hadoop02 hadoop03 hadoop04<span class="token keyword">do</span><span class="token keyword">echo</span><span class="token string">"**********<span class="token variable">$i</span> starting...**********"</span><span class="token function">ssh</span><span class="token variable">$i</span><span class="token string">'/opt/module/kafka_2.11-0.11.0.0/bin/kafka-server-start.sh -daemon /opt/module/kafka_2.11-0.11.0.0/config/server.properties'</span><span class="token keyword">done</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token string">"stop"</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">for</span> i<span class="token keyword">in</span> hadoop02 hadoop03 hadoop04<span class="token keyword">do</span><span class="token keyword">echo</span><span class="token string">"**********<span class="token variable">$i</span> stoping...**********"</span><span class="token function">ssh</span><span class="token variable">$i</span><span class="token string">"/opt/module/kafka_2.11-0.11.0.0/bin/kafka-server-stop.sh"</span><span class="token keyword">done</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">;</span> esac</code></pre> <ul> <li>但是在执行后，发现Kafka并没有被启动，也没有日志信息或日志文件。因此我将上述代码中start部分的-daemon删除，关闭其静默启动，再次启动Kafka，观察输出结果，得到的结果如下图所示。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/48178bd942972694628ed991f01ffa98.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> <li>可以看到，报出的错误如下：</li> </ul> <pre><code class="prism language-bash">/opt/module/kafka_2.11-0.11.0.0/bin/kafka-run-class.sh: line 258: exec: java: not found</code></pre> <hr/> </h1> <ul> <li>该错误的字面意思是：在kafka-run-class.sh脚本文件中的第258行处执行时，找不到“java”字符串的含义。</li> <li>经过仔细排查，已确定<strong>不是</strong>脚本输入错误或是安装出错的问题。</li> <li>于是，我打开了这个脚本，查看其源代码，找到第258行。</li> <li>由于报错的原因主要和“java”有关，所以查找标注出“java”字符串<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/e8c5fba693c701f8134601c095ce1cb5.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> <li>在第258行，可以看到有$JAVA变量，猜测是这个变量出了问题，于是向前查找该变量。果不其然，在前文中找到该变量定义的位置，如下图所示。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/1b4e55fd33aa844dbcf7f2fc100a6e8b.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> <li>可以看到，这是指定系统使用java的地方，于是想到与JAVA_HOME环境变量的配置有关。</li> <li>由于交互式shell和非交互式shell、登录shell和非登录shell是有区别的。</li> <li>在登录shell里，环境信息需要读取/etc/profile和~ /.bash_profile, ~/.bash_login, and ~/.profile按顺序最先的一个，并执行其中的命令。除非被 —noprofile选项禁止了；</li> <li>在非登录shell里，环境信息只读取 /etc/bash.bashrc和~/.bashrc 手工执行是属于登录shell，脚本执行数据非登录shell，而我的linux环境配置中只对/etc/profile进行了jdk1.8等环境的配置，所以脚本执行启动Kafka失败了<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/5feb3add4beec32a65c144d40010829e.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> </ul> <hr/> </h1> <ul> <li>直接在源代码中显式指定JAVA_HOME的路径（注意要根据自己系统中的路径进行更改，不要直接照抄），如下图所示。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/d3ba5c3166081f4f6371ae1ad5d6acdd.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> <li>修改完成后，:wq保存退出。然后在群起脚本中加回-daemon指令，静默启动。可以看到启动结果如下<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220829/0375fc71425f50df19d7cf000849b031.jpg" alt="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法"></li> <li>可见，此时Kafka已经正常启动，照此方法修改其它主机的配置信息即可，问题得到解决。</li> </ul> <hr/> <p>有用的话记得点个赞哦~</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-83034.htm">动物疫苗审批流程是什么 动物疫苗审批流程是什么样的</a></p>
+                                        <p>下一个：<a href="/news/article-83740.htm">猫猫3针疫苗多少钱（猫三针疫苗价格）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe.htm" title="3月2日→22.1M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">3月2日→22.1M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-42402.htm" title="批发猫的地方在哪（猫 批发）">批发猫的地方在哪（猫 批发）</a></li>
+                        <li class="py-2"><a href="/news/article-40908.htm" title="人打的狂犬疫苗和动物打的一样吗 人打的狂犬疫苗和动物打的一样吗多少钱">人打的狂犬疫苗和动物打的一样吗 人打的狂犬疫苗和动物打的一样吗多少钱</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-subscribe-node.htm" title="1月29日→22.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址">1月29日→22.8M/S|最新免费节点SSR/V2ray/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-17-node-share-links.htm" title="2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">2月17日→18.4M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-free-surge-node.htm" title="2月22日→21.9M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">2月22日→21.9M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45381.htm" title="宠物医院优质好评500字（宠物医院好评100字通用评论）">宠物医院优质好评500字（宠物医院好评100字通用评论）</a></li>
+                        <li class="py-2"><a href="/news/article-39439.htm" title="上海宠物美容师多少钱一个月（上海宠物美容师多少钱一个月啊）">上海宠物美容师多少钱一个月（上海宠物美容师多少钱一个月啊）</a></li>
+                        <li class="py-2"><a href="/news/article-61424.htm" title="被猫抓了一下红色划痕没破皮有点痛（被猫抓了有红色抓痕,没破皮）">被猫抓了一下红色划痕没破皮有点痛（被猫抓了有红色抓痕,没破皮）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-25-node-share.htm" title="2月25日→18M/S|最新免费节点Shadowrocket/V2ray/Clash/SSR/Surge订阅链接地址">2月25日→18M/S|最新免费节点Shadowrocket/V2ray/Clash/SSR/Surge订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">86</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">82</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
