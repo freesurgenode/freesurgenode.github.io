@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-97731.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MKL库矩阵乘法(cblas_dgemm)</title>
+        <meta name="description" content="MKL库中基本线性代数子程序，BLAS(Basic Linear Algebra Subprograms)库，是一个API标淮，用以规范发布基础线性代数操作的数值库（如向量或矩阵乘法）。其中CBLAS" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-97731.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="MKL库矩阵乘法(cblas_dgemm)" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/4834b0aa60083d339e433f6b7cc01f84.webp" />
+        <meta property="og:release_date" content="2025-04-17T09:00:22" />
+    <meta property="og:updated_time" content="2025-04-17T09:00:22" />
+        <meta property="og:description" content="MKL库中基本线性代数子程序，BLAS(Basic Linear Algebra Subprograms)库，是一个API标淮，用以规范发布基础线性代数操作的数值库（如向量或矩阵乘法）。其中CBLAS" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MKL库矩阵乘法(cblas_dgemm)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">MKL库矩阵乘法(cblas_dgemm)</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<p>MKL库中基本线性代数子程序，<strong>BLAS(Basic Linear Algebra Subprograms)库</strong>，是一个API标淮，用以规范发布基础线性代数操作的数值库（如向量或矩阵乘法）。其中<strong>CBLAS</strong>是<strong>BLAS</strong>的<em>C语言</em>接口。</p> <p>库中前缀用来区分所支持处理的数据类型。</p> <table> <thead> <tr> <th>前缀</th> <th>描述</th> <th>函数名系列</th> <th>描述</th> </tr> </thead> <tbody> <tr> <td>s-</td> <td>实数、单精度</td> <td>ge...</td> <td>一般矩阵</td> </tr> <tr> <td>c-</td> <td>复数、单精度</td> <td>sy...</td> <td>对称矩阵</td> </tr> <tr> <td>d-</td> <td>实数、双精度</td> <td>he...</td> <td>Hermitian矩阵</td> </tr> <tr> <td>z-</td> <td>复数、双精度</td> <td>tr...</td> <td>三角矩阵</td> </tr> </tbody> </table> <p><strong>基本矩阵、向量操作</strong></p> <table> <thead> <tr> <th>函数（采用常规的前缀为d的接口）</th> <th>描述</th> </tr> </thead> <tbody> <tr> <td>cblas_dasum</td> <td>向量元素值模的总和</td> </tr> <tr> <td>cblas_daxpy</td> <td>缩放向量</td> </tr> <tr> <td>cblas_dcopy</td> <td>复制向量</td> </tr> <tr> <td>cblas_ddot</td> <td>向量点积</td> </tr> <tr> <td>cblas_dswap</td> <td>交换两向量</td> </tr> <tr> <td>cblas_dgemv</td> <td>常规矩阵×向量</td> </tr> </tbody> </table> <p>重点介绍矩阵的乘法运算。</p> <p>此示例是利用Intel 的MKL库函数完成计算矩阵（乘法）运算，计算式为：</p> <div class="math display">\[C=\alpha*A*B+\beta*C<br /> \]</div> <p>其通过调整<span class="math inline">\(A、B、C\)</span>矩阵及其系数，同样可以完成矩阵的加减；如若只需矩阵<span class="math inline">\(A\)</span>与<span class="math inline">\(B\)</span>的乘积，设置<span class="math inline">\(\alpha=1,\beta=0\)</span>即可。</p> <p>其中<span class="math inline">\(A\)</span>为<span class="math inline">\(m\times k\)</span>维矩阵，<span class="math inline">\(B\)</span>为<span class="math inline">\(k\times n\)</span>维矩阵，<span class="math inline">\(C\)</span>为<span class="math inline">\(m\times n\)</span>维矩阵。</p> <p>使用的函数为<strong>cblas_dgemm</strong>(Double precision GEneric Matrix Multiplication)，完成一般的矩阵乘法。</p> <h2 id="1-cblas_dgemm参数详解">1 cblas_dgemm参数详解</h2> <pre><code class="language-C++">fun cblas_dgemm(Layout,		//指定行优先(CblasRowMajor,C)或列优先(CblasColMajor,Fortran)数据排序                TransA,		//指定是否转置矩阵A                TransB,		//指定是否转置矩阵B                M,		//矩阵A和C的行数                N,		//矩阵B和C的列数                K,		//矩阵A的列，B的行                alpha,		//矩阵A和B乘积的比例因子                A,		//A矩阵                lda,		//矩阵A的第一维的大小                B,		//B矩阵                ldb,		//矩阵B的第一维的大小                beta,		//矩阵C的比例因子                C,		//(input/output) 矩阵C                ldc		//矩阵C的第一维的大小                )</code></pre> <h2 id="2-定义待处理矩阵">2 定义待处理矩阵</h2> <pre><code class="language-c++">#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include "mkl.h"		// 调用mkl头文件  #define min(x,y) (((x) &lt; (y)) ? (x) : (y))</code></pre> <pre><code class="language-C++">double* A, * B, * C;		//声明三个矩阵变量，并分配内存 int m, n, k, i, j;			//声明矩阵的维度，其中 double alpha, beta;  m = 2000, k = 200, n = 1000; alpha = 1.0; beta = 0.0;  A = (double*)mkl_malloc(m * k * sizeof(double), 64);	//按照矩阵维度分配内存 B = (double*)mkl_malloc(k * n * sizeof(double), 64);	//mkl_malloc用法与malloc相似，64表示64位 C = (double*)mkl_malloc(m * n * sizeof(double), 64); if (A == NULL || B == NULL || C == NULL) {		//判空      mkl_free(A);				     mkl_free(B);     mkl_free(C);     return 1; }  for (i = 0; i &lt; (m * k); i++) {		//赋值     A[i] = (double)(i + 1); }  for (i = 0; i &lt; (k * n); i++) {     B[i] = (double)(-i - 1); }  for (i = 0; i &lt; (m * n); i++) {     C[i] = 0.0; }</code></pre> <p>其中<span class="math inline">\(A\)</span>和<span class="math inline">\(B\)</span>矩阵设置为：</p> <div class="math display">\[\begin{array}{l}<br /> A = \left[ {\begin{array}{*{20}{c}}<br /> {1.0}&amp;{2.0}&amp; \cdots &amp;{1000.0}\\<br /> {1001.0}&amp;{1002.0}&amp; \cdots &amp;{2000.0}\\<br />  \vdots &amp; \vdots &amp; \ddots &amp; \cdots \\<br /> {999001.0}&amp;{999002.0}&amp; \cdots &amp;{1000000.0}<br /> \end{array}} \right]  \space<br /> B = \left[ {\begin{array}{*{20}{c}}<br /> {-1.0}&amp;{-2.0}&amp; \cdots &amp;{-1000.0}\\<br /> {-1001.0}&amp;{-1002.0}&amp; \cdots &amp;{-2000.0}\\<br />  \vdots &amp; \vdots &amp; \ddots &amp; \cdots \\<br /> {-999001.0}&amp;{-999002.0}&amp; \cdots &amp;{-1000000.0}<br /> \end{array}} \right]<br /> \end{array}<br /> \]</div> <p><span class="math inline">\(C\)</span>矩阵为全0。</p> <h2 id="3-执行矩阵乘法">3 执行矩阵乘法</h2> <p>回到例子中，对照上面的参数，将C矩阵用A与B的矩阵乘法表示：</p> <pre><code class="language-c++">cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, alpha, A, k, B, n, beta, C, n);</code></pre> <p>执行后的得到结果如下：</p> <div align="center"><img decoding="async" src="https://img2022.cnblogs.com/blog/1602810/202204/1602810-20220421184623670-346312151.png" alt="MKL库矩阵乘法(cblas_dgemm)" style="zoom: 67%"/></div> <h2 id="完整代码">完整代码</h2> <pre><code class="language-C++">#include &lt;stdio.h&gt; #include &lt;stdlib.h&gt; #include "mkl.h"  #define min(x,y) (((x) &lt; (y)) ? (x) : (y))  int main() {     double* A, * B, * C;     int m, n, k, i, j;     double alpha, beta;       m = 2000, k = 200, n = 1000;      alpha = 1.0; beta = 0.0;      A = (double*)mkl_malloc(m * k * sizeof(double), 64);     B = (double*)mkl_malloc(k * n * sizeof(double), 64);     C = (double*)mkl_malloc(m * n * sizeof(double), 64);     if (A == NULL || B == NULL || C == NULL) {          mkl_free(A);         mkl_free(B);         mkl_free(C);         return 1;     }       for (i = 0; i &lt; (m * k); i++) {         A[i] = (double)(i + 1);     }      for (i = 0; i &lt; (k * n); i++) {         B[i] = (double)(-i - 1);     }      for (i = 0; i &lt; (m * n); i++) {         C[i] = 0.0;     }      cblas_dgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans,         m, n, k, alpha, A, k, B, n, beta, C, n);       for (i = 0; i &lt; min(m, 6); i++) {         for (j = 0; j &lt; min(k, 6); j++) {             printf("%12.0f", A[j + i * k]);         }         printf("\n");     }      for (i = 0; i &lt; min(k, 6); i++) {         for (j = 0; j &lt; min(n, 6); j++) {             printf("%12.0f", B[j + i * n]);         }         printf("\n");     }      for (i = 0; i &lt; min(m, 6); i++) {         for (j = 0; j &lt; min(n, 6); j++) {             printf("%12.5G", C[j + i * n]);         }         printf("\n");     }      mkl_free(A);     mkl_free(B);     mkl_free(C);      return 0; }</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-97730.htm">一文详解微服务架构</a></p>
+                                        <p>下一个：<a href="/news/article-98432.htm">青岛市动物诊疗价目收费表图片（青岛市动物诊疗价目收费表图片大全）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-20-surge-node-share.htm" title="3月20日→19.7M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">3月20日→19.7M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-80250.htm" title="动物医院翻译成英语 动物医院翻译成英语怎么说">动物医院翻译成英语 动物医院翻译成英语怎么说</a></li>
+                        <li class="py-2"><a href="/news/article-78858.htm" title="vue3中 setup注意点">vue3中 setup注意点</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-surge-github.htm" title="4月17日→18.2M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址">4月17日→18.2M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-65688.htm" title="1970年农历11月11日出生的人命好吗（农历1970年11月11日是什么星座）">1970年农历11月11日出生的人命好吗（农历1970年11月11日是什么星座）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-node-subscribe.htm" title="3月2日→22.1M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">3月2日→22.1M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86602.htm" title="狗粮颗粒制作方法配方大全（最简颗粒狗粮制作方法）">狗粮颗粒制作方法配方大全（最简颗粒狗粮制作方法）</a></li>
+                        <li class="py-2"><a href="/news/article-65689.htm" title="延吉兽医医院在哪 延吉兽医医院在哪个位置">延吉兽医医院在哪 延吉兽医医院在哪个位置</a></li>
+                        <li class="py-2"><a href="/news/article-72115.htm" title="扬州宠园宠物医院（扬州宠园宠物医院怎么样）">扬州宠园宠物医院（扬州宠园宠物医院怎么样）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-22-free-subscribe-node.htm" title="3月22日→21.9M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址">3月22日→21.9M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">52</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
