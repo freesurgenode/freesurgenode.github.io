@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-104550.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作</title>
+        <meta name="description" content="翻译该文的目的是为了让读者能够更好的理解Parquet文件的写入原理 Parquet文件是最流行的列式文件格式之一，它被用在很多工具上，如Apache Hive，Spark，Presto，Flink等" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-104550.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/4eed814e903fb51488e9eb0a2c34d299.webp" />
+        <meta property="og:release_date" content="2025-04-26T07:39:04" />
+    <meta property="og:updated_time" content="2025-04-26T07:39:04" />
+        <meta property="og:description" content="翻译该文的目的是为了让读者能够更好的理解Parquet文件的写入原理 Parquet文件是最流行的列式文件格式之一，它被用在很多工具上，如Apache Hive，Spark，Presto，Flink等" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p><strong>翻译该文的目的是为了让读者能够更好的理解Parquet文件的写入原理</strong><br /> Parquet文件是最流行的列式文件格式之一，它被用在很多工具上，如Apache Hive，Spark，Presto，Flink等。<br /> 对于在各种工作场景下，我们怎么深入的调优Parquet文件写入呢？（此文针对于Parquet 1.10.0，但是很多概念在以后的版本中也适用）</p> <h2>Parquet文件格式结构</h2> <p>一个Parquet文件由一个或者多个Row Groups组成，一个Row Groups由包含每一列的数据块组成，每个数据块包含了一个或者多个page，该page中包含了列数据。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/7247c2e43647c09f8a1df93433b01ddc.jpg" alt="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作"><br /> 所以，一个Row Group包含了一些行的所有列（在一个文件中是可以变的，下面会提到），对于一个Row Group，首先你看到的是一个列的内容，再者是第二列的内容，以此类推。<br /> 如果以后你需要某个Parquet文件的某一列，你需要读取所有Row Group的对应的列快，而不是所有Row Group所有内容。</p> <h2>写一行数据</h2> <p>虽然Parquet文件是列式存储，但是这个只是部内表示，你仍需要需要一行一行的写：<code>InternalParquetRecordWriter.write(row)</code><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/168ae080ed2f33ee2ef2a7ec85ade46a.jpg" alt="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作"><br /> 每一行会被立即切成不同的列，并分别存储到不同的内存Column存储中。最大值/最小值以及null值会被更新到对应的列中。<br /> 现在一切的存储还在内存中。</p> <h2>Page</h2> <p>在写了100个数据的时候（对应100行），Parquet writer会检查这100个列值是否超过了指定的Page大小（默认是1MB）。<br /> 假如一个列的的<strong>原始</strong>数据没超过page的大小阈值，然后下一个page的大小会基于当前的实际列的大小进行调整，所以它既不是每一个列数据都检查一下，也不是每100列数据检查一下。因此Page大小不是固定的。<br /> 假如<strong>原始</strong>数据没有超过了Page大小，那么列内容就会被压缩（如果制定了压缩格式的话），并且被flush到列的Page存储中。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/5481333e42c93583d036633d56f8332a.jpg" alt="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作"><br /> 每一Page包含了元数据（Page header），元数据中包含了未压缩的数据大小，值的数量，以及统计信息：在这个page中这个列的最大最小值和null值的数量。<br /> 这个时候一切也还是在内存中，但是数据现在是压缩的了。</p> <h2>Row Group（block size）</h2> <p>在写了第一个100行数据到内存中以后，这个Parquet writer会检查数据的大小是否超过了pqrquet指定的Row Group大小（block size）（默认是128MB）。<br /> 这个大小包括了每一列在column存储中未压缩的数据大小（还没有被flushed到Page存储中）和每一列已经写入到Page存储中的压缩的数据大小。<br /> 假如数据大小没有超过指定的row group大小，Parquet writer将会根据平均的行大小来估算下一个row group大小，有可能是100甚至10000行，所哟row group大小限制也不是很严格。<br /> 假如数据大小超过了指定的row group大小，Parquet writer将会flush每一列column存储的数据到Page存储中，然后一列一列的将所有Page存储中数据的写到输出流中。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220901/5e68e7dd35bc20a037a57a1f4b2e169f.jpg" alt="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作"><br /> 这是第一次数据被写到外部的流中（HadoopPositionOutputStream），这对外部组件可见，但是对终端用户不可见，例如 S3 Multipart Upload传输线程能够在后台上传数据到S3中。<br /> 注意：Row Group内容并不包含任何元数据（如统计信息，offset等），这些元数据信息会被写到footer中。</p> <h2>File Footer</h2> <p>当所有的row groups写到外部流中，并在关闭文件之前，Parquet writer将会在文件的末尾加上footer。<br /> Footer包含了文件的schema（列名字和对应的类型）和关于每一个row group的细节（总的大小，行数，最大最小值，每一列的null值数量）。注意这些列的统计信息是<strong>row group级别</strong>的，而不是文件级别的。<br /> 把所有的元数据写到footer中，可以让Parquet writer不需要保c存整个文件在内存中或者磁盘里，这就是为什么row group能够安全的被flushed。</p> <h2>Logging</h2> <p>你可以通过查看应用日志来看Parquet writer是怎么工作的。这里有好几个重要的info信息。<br /> 假如当前的row group大小超过了row group的阈值-–checkBlockSizeReached():</p> <pre><code>LOG.info("mem size {} &gt; {}: flushing {} records to disk.", memSize, nextRowGroupSize, recordCount);</code></pre> <p>真实的应用例子如下：</p> <pre><code>May 29, 2020 1:58:35 PM org.apache.parquet.hadoop.InternalParquetRecordWriter checkBlockSizeReached INFO: mem size 268641769 &gt; 268435456: flushing 324554 records to disk.</code></pre> <p>以上日志说明，当前的数据大小是 268,641,769 bytes，然而row group大小是268,435,456 (256 MB)，所以324,554行数据被flushed到外部流中。<br /> 当一个row group 被flushed之后，你会看到如下日志信息-flushRowGroupToStore()：</p> <pre><code>LOG.info("Flushing mem columnStore to file. allocated memory: {}", columnStore.getAllocatedSize());</code></pre> <p>注意columnStore大小包括了Page存储的大小。<br /> 真实的应用例子如下：</p> <pre><code>May 29, 2020 1:58:35 PM org.apache.parquet.hadoop.InternalParquetRecordWriter flushRowGroupToStore INFO: Flushing mem columnStore to file. allocated memory: 199496450</code></pre> <p>本文翻译自How Parquet Files are Written – Row Groups, Pages, Required Memory and Flush Operations</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-104546.htm">Linux安装gssapi、kafka-python实现Kerberos认证连接Kafka等中间件集群服务（最新版）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-76142.htm" title="加盟什么项目好呢（加盟个什么合适）">加盟什么项目好呢（加盟个什么合适）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-21-free-surge-node.htm" title="3月21日→21.5M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址">3月21日→21.5M/S|最新免费节点V2ray/SSR/Shadowrocket/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-27-free-high-speed-nodes.htm" title="3月27日→21.9M/S|最新免费节点V2ray/SSR/Clash/Shadowrocket/Surge订阅链接地址">3月27日→21.9M/S|最新免费节点V2ray/SSR/Clash/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-19-surge-node.htm" title="3月19日→19.1M/S|最新免费节点SSR/Clash/Shadowrocket/V2ray/Surge订阅链接地址">3月19日→19.1M/S|最新免费节点SSR/Clash/Shadowrocket/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-97730.htm" title="一文详解微服务架构">一文详解微服务架构</a></li>
+                        <li class="py-2"><a href="/news/article-88763.htm" title="宠物领养协议书怎么写有效的 宠物领养协议书怎么写有效的模板">宠物领养协议书怎么写有效的 宠物领养协议书怎么写有效的模板</a></li>
+                        <li class="py-2"><a href="/news/article-70800.htm" title="动物疫苗上市企业排名榜（动物疫苗上市企业排名榜单）">动物疫苗上市企业排名榜（动物疫苗上市企业排名榜单）</a></li>
+                        <li class="py-2"><a href="/news/article-73433.htm" title="动物疫苗去哪买（动物疫苗去哪买便宜）">动物疫苗去哪买（动物疫苗去哪买便宜）</a></li>
+                        <li class="py-2"><a href="/news/article-94773.htm" title="Vue watch中监听值的变化,判断后修改值方式_vue.js_">Vue watch中监听值的变化,判断后修改值方式_vue.js_</a></li>
+                        <li class="py-2"><a href="/news/article-101337.htm" title="卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书">卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

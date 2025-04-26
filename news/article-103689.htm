@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-103689.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Linux服务器执行命令报 nohup: redirecting stderr to stdout 错误</title>
+        <meta name="description" content="Spring boot程序调用服务器上的sh脚本，sh脚本执行过程中会输出日志信息到nohup.out文件，但是会丢失信息，原命令是这样的 nohup sh/test/test.sh &gt;/tes" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-103689.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="Linux服务器执行命令报 nohup: redirecting stderr to stdout 错误" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/9ee550f9eb9db4deb27800106787d5ab.webp" />
+        <meta property="og:release_date" content="2025-04-25T07:07:40" />
+    <meta property="og:updated_time" content="2025-04-25T07:07:40" />
+        <meta property="og:description" content="Spring boot程序调用服务器上的sh脚本，sh脚本执行过程中会输出日志信息到nohup.out文件，但是会丢失信息，原命令是这样的 nohup sh/test/test.sh &gt;/tes" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux服务器执行命令报 nohup: redirecting stderr to stdout 错误">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">Linux服务器执行命令报 nohup: redirecting stderr to stdout 错误</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>Spring boot程序调用服务器上的sh脚本，sh脚本执行过程中会输出日志信息到nohup.out文件，但是会丢失信息，原命令是这样的</p> <pre><code class="prism language-powershell">nohup sh<span class="token operator">/</span>test<span class="token operator">/</span>test<span class="token punctuation">.</span>sh &gt;<span class="token operator">/</span>test<span class="token operator">/</span>nohup<span class="token punctuation">.</span>out &amp;</code></pre> <p>这样命令是可以执行的，但是有些报错信息的话就看不到了，所以，看了很多博客后才找到解决办法。那就是在 nohup.out &amp; 中间加入“2&gt;&amp;1”，即：</p> <pre><code class="prism language-powershell">nohup sh<span class="token operator">/</span>test<span class="token operator">/</span>test<span class="token punctuation">.</span>sh &gt;<span class="token operator">/</span>test<span class="token operator">/</span>nohup<span class="token punctuation">.</span>out 2&gt;&amp;1 &amp;</code></pre> <p>这样改动之后，完整信息就能输出到nohup.out文件中了。</p> <p>解释如下：<br /> 2&gt;<br /> 表示把标准错误(stderr)重定向，标准输出(stdout)是1。</p> <p>尖括号后面可以跟文件名，或者是&amp;1, &amp;2，分别表示重定向到标准输出和标准错误。</p> <p>2&gt; &amp;1<br /> 1&gt; &amp;2<br /> 2&gt; stderr.log<br /> 1&gt; stdout.log</p> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-102929.htm">搭建vue2.x开发环境的步骤与方式</a></p>
+                                        <p>下一个：<a href="/news/article-103691.htm">给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-83739.htm" title="Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法">Kafka群起时报错：kafka-run-class.sh: line 258: exec: java: not found的解决办法</a></li>
+                        <li class="py-2"><a href="/news/article-103691.htm" title="给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）">给猫咪驱虫一般多少钱一只（给猫驱虫要多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-85174.htm" title="动物疫苗供应站 动物疫苗供应站是干嘛的">动物疫苗供应站 动物疫苗供应站是干嘛的</a></li>
+                        <li class="py-2"><a href="/news/article-72771.htm" title="开个小型宠物食品加工厂需要什么手续和证件呢 开个宠物食品加工厂要多少钱">开个小型宠物食品加工厂需要什么手续和证件呢 开个宠物食品加工厂要多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-99971.htm" title="VSCode插件离线安装">VSCode插件离线安装</a></li>
+                        <li class="py-2"><a href="/news/article-95531.htm" title="开宠物店利润高吗知乎文章（开宠物店盈利吗）">开宠物店利润高吗知乎文章（开宠物店盈利吗）</a></li>
+                        <li class="py-2"><a href="/news/article-74782.htm" title="正规的宠物领养网站推荐一下（比较正规的宠物领养平台）">正规的宠物领养网站推荐一下（比较正规的宠物领养平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-node-share.htm" title="3月11日→22.8M/S|最新免费节点SSR/Clash/V2ray/Shadowrocket/Surge订阅链接地址">3月11日→22.8M/S|最新免费节点SSR/Clash/V2ray/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-99186.htm" title="宠物猫驱虫药哪种安全有效果（猫猫驱虫效果那个药最好）">宠物猫驱虫药哪种安全有效果（猫猫驱虫效果那个药最好）</a></li>
+                        <li class="py-2"><a href="/news/article-78859.htm" title="兰州哪里买宠物兔便宜（兰州买兔子）">兰州哪里买宠物兔便宜（兰州买兔子）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">75</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
