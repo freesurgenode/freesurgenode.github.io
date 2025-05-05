@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-109548.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>如何在MySQL中添加两个或多个字符串？</title>
+        <meta name="description" content="CONCAT()在MySQL中，一个称为的字符串函数用于将两个或多个字符串连接为一个字符串。 语法 CONCAT(String1,String2,…,StringN) 在此，CONCAT函数的参数是需" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-109548.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="如何在MySQL中添加两个或多个字符串？" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/469d3dd77063b63d7e662d1744c15146.webp" />
+        <meta property="og:release_date" content="2025-05-02T09:22:38" />
+    <meta property="og:updated_time" content="2025-05-02T09:22:38" />
+        <meta property="og:description" content="CONCAT()在MySQL中，一个称为的字符串函数用于将两个或多个字符串连接为一个字符串。 语法 CONCAT(String1,String2,…,StringN) 在此，CONCAT函数的参数是需" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="如何在MySQL中添加两个或多个字符串？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">如何在MySQL中添加两个或多个字符串？</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p><code>CONCAT()</code>在MySQL中，一个称为的字符串函数用于将两个或多个字符串连接为一个字符串。</p> <h2>语法</h2> <pre>CONCAT(String1,String2,…,StringN)</pre> <p>在此，CONCAT函数的参数是需要串联为单个字符串的字符串。</p> <h2>示例</h2> <pre>mysql&gt;&nbsp;Select&nbsp;CONCAT('Ram','is','a','good','boy')&nbsp;AS&nbsp;Remarks;  +---------------+ |&nbsp;Remarks&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| +---------------+ |&nbsp;Ramisagoodboy&nbsp;| +---------------+  1&nbsp;row&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-108700.htm">58同城免费领养宠物可靠吗知乎（58同城免费领养宠物可靠吗知乎）</a></p>
+                                        <p>下一个：<a href="/news/article-109552.htm">动物防疫疫苗的运输规定最新标准是（动物防疫疫苗的运输规定最新标准是什么意思）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-109552.htm" title="动物防疫疫苗的运输规定最新标准是（动物防疫疫苗的运输规定最新标准是什么意思）">动物防疫疫苗的运输规定最新标准是（动物防疫疫苗的运输规定最新标准是什么意思）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-5-surge-node-share.htm" title="5月5日→18.4M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址">5月5日→18.4M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-free-node-subscribe-links.htm" title="4月13日→19.6M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址">4月13日→19.6M/S|最新免费节点SSR/Shadowrocket/V2ray/Clash/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-node-share-links.htm" title="4月2日→23M/S|最新免费节点V2ray/Clash/SSR/Shadowrocket/Surge订阅链接地址">4月2日→23M/S|最新免费节点V2ray/Clash/SSR/Shadowrocket/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-87329.htm" title="为什么猫不用打狂犬疫苗针（家猫为啥不建议打狂犬疫苗）">为什么猫不用打狂犬疫苗针（家猫为啥不建议打狂犬疫苗）</a></li>
+                        <li class="py-2"><a href="/news/article-93253.htm" title="新手做电商卖什么产品好（新手做电商选择哪类产品）">新手做电商卖什么产品好（新手做电商选择哪类产品）</a></li>
+                        <li class="py-2"><a href="/news/article-85901.htm" title="兽药安泰又叫什么（兽药安泰又叫什么名字）">兽药安泰又叫什么（兽药安泰又叫什么名字）</a></li>
+                        <li class="py-2"><a href="/news/article-101337.htm" title="卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书">卖动物疫苗需要什么资质 卖动物疫苗需要什么资质证书</a></li>
+                        <li class="py-2"><a href="/news/article-90253.htm" title="mysql时间类型长度是19位_mysql 时间字段用什么类弄，长度是多少">mysql时间类型长度是19位_mysql 时间字段用什么类弄，长度是多少</a></li>
+                        <li class="py-2"><a href="/news/article-102929.htm" title="搭建vue2.x开发环境的步骤与方式">搭建vue2.x开发环境的步骤与方式</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

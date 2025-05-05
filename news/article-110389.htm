@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://freesurgenode.github.io/news/article-110389.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>python3 元组 tuple&#8211;讲义</title>
+        <meta name="description" content="4.元组 tuple   Tuple元组概念  元组可以存储多个数据,数据不允许修改 元组里可以存放任何类型的数据 比如嵌套,元组,列表    元组tuple是小括号( )  tup1=(元素data" />
+        <link rel="icon" href="/assets/website/img/freesurgenode/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Free Surge Node机场节点订阅中文站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://freesurgenode.github.io/news/article-110389.htm" />
+    <meta property="og:site_name" content="Free Surge Node机场节点订阅中文站" />
+    <meta property="og:title" content="python3 元组 tuple&#8211;讲义" />
+    <meta property="og:image" content="https://freesurgenode.github.io/uploads/20240908/469d3dd77063b63d7e662d1744c15146.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:28:18" />
+    <meta property="og:updated_time" content="2025-05-03T10:28:18" />
+        <meta property="og:description" content="4.元组 tuple   Tuple元组概念  元组可以存储多个数据,数据不允许修改 元组里可以存放任何类型的数据 比如嵌套,元组,列表    元组tuple是小括号( )  tup1=(元素data" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python3 元组 tuple&#8211;讲义">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.carousel.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/owl.carousel/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/aos/css/aos.css">
+    <link rel="stylesheet" href="/assets/website/js/frontend/freesurgenode/jquery-flipster/css/jquery.flipster.css">
+    <link rel="stylesheet" href="/assets/website/css/freesurgenode/style.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XL2JZC5QJD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-XL2JZC5QJD');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div id="mobile-menu-overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                        <span>Free Surge Node</span>
+                        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="mdi mdi-menu"> </i></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <div class="d-lg-none d-flex justify-content-between px-4 py-3 align-items-center">
+                    Free Surge Node                    <a href="javascript:;" class="close-menu"><i class="mdi mdi-close"></i></a>
+                </div>
+                <ul class="navbar-nav ml-auto align-items-center">
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/">首页</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/free-nodes/">免费节点</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/client.htm">客户端</a>
+                    </li>
+                                        <li class="nav-item">
+                        <a class="nav-link" href="/news/">新闻资讯</a>
+                    </li>
+                                    </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="page-body-wrapper">
+        <section id="home" class="home" style="padding-top:80px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="main-banner">
+                            <div class="d-sm-flex justify-content-between">
+                                <div>
+                                    <div class="banner-title">
+                                        <h1 class="font-weight-medium">python3 元组 tuple&#8211;讲义</h1>
+                                    </div>
+                                    <p class="mt-3">
+                                        <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                                    </p>
+                                </div>
+                                <div class="mt-5 mt-lg-0">
+                                    <img src="/assets/website/img/freesurgenode/group.png" alt="Free Surge Node" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="our-process" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3> <a id="4_tuple_0" rel="nofollow"></a>4.元组 tuple</h3> <ul> <li> <p>Tuple元组概念</p> <ul> <li>元组可以存储多个数据,数据不允许修改</li> <li>元组里可以存放任何类型的数据</li> <li>比如嵌套,元组,列表</li> </ul> </li> <li> <p>元组tuple是小括号( )</p> <ul> <li>tup1=(元素data,)</li> <li>tup1=tuple(元素data,)</li> </ul> </li> <li> <p>特性：不可修改</p> <ul> <li>str和tuple是不可变类型，修改需要重新赋值</li> </ul> </li> <li> <p>1）与列表的区别<br /> 类似列表，但列表用[ ]标识，元组用()标识，并且列表元素可二次赋值，但元组元素不能。</p> </li> <li> <p>2）元组的创建<br /> 创建空元组：tuple（） 。</p> <ul> <li>元组特点：定义元组使⽤⼩括号，且逗号隔开各个数据，数据可以是不同的数据类型。</li> <li>创建只有一个元素的元组：tuple（a，）必须要在元素后加逗号</li> <li>注意：如果定义的元组只有⼀个数据，那么这个数据后⾯也要添加逗号</li> </ul> </li> <li> <p>3）元素的访问</p> <ul> <li> <p>元组也是用下标索引</p> </li> <li> <p>虽然创建时用（）包含，但是在访问单个元素时，与列表一样，通过[ 索引号 ]来访问。</p> <ul> <li> <p>示例</p> <ul> <li> <p>print(tu[0:2])</p> <ul> <li>打印下标0-2的元素,不含2</li> </ul> </li> <li> <p>print(tu[1])</p> <ul> <li>访问下标为1的元素</li> </ul> </li> </ul> </li> </ul> </li> </ul> </li> <li> <p>元组的常见操作</p> <ul> <li> <p>查找：index()、count()</p> <ul> <li> <p>index()</p> <ul> <li>查找某个数据，如果数据存在返回对应的下标，否则报错，语法和列表、字符串串的index<br /> 方法相同。</li> <li>print(tuple1.index(‘aa’))</li> </ul> </li> <li> <p>count(0</p> <ul> <li>统计某个数据在当前元组出现的次数。</li> <li>print(tunple1.count(‘bb’))</li> </ul> </li> <li> <p>len(tuple)</p> <ul> <li>计算元组元素个数。</li> </ul> </li> </ul> </li> <li> <p>注意</p> <ul> <li>注意：元组内的直接数据如果修改则立即报错</li> <li>但是如果元组里面有列表，修改列表里面的数据则是支持的，故自觉很重要。</li> </ul> </li> </ul> </li> <li> <p>元组函数</p> <ul> <li> <p>cmp(tuple1, tuple2)</p> <ul> <li>比较两个元组元素。</li> </ul> </li> <li> <p>max(tuple)</p> <ul> <li>返回元组中元素最大值。</li> </ul> </li> <li> <p>min(tuple)</p> <ul> <li>返回元组中元素最小值。</li> </ul> </li> <li> <p>tuple(seq)</p> <ul> <li>将列表转换为元组。</li> </ul> </li> </ul> </li> <li> <p>4）删除元组</p> <ul> <li>元组中的单个元素不能被删除，但是元组可以通过del语句整个删除。</li> </ul> </li> <li> <p>5）元组运算符（同列表）</p> </li> <li> <p>6）任意无符号的对象，以逗号隔开，默认为元组（无关闭分隔符）</p> </li> <li> <p>7）元组内置函数</p> </li> <li> <p>访问里面的元素</p> <ul> <li> <p>示例</p> <ul> <li> <p>print(tu[0:2])</p> <ul> <li>打印下标0-2的元素,不含2</li> </ul> </li> <li> <p>print(tu[1])</p> <ul> <li>访问下标为1的元素</li> </ul> </li> </ul> </li> </ul> </li> </ul> </div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109552.htm">动物防疫疫苗的运输规定最新标准是（动物防疫疫苗的运输规定最新标准是什么意思）</a></p>
+                                        <p>下一个：<a href="/news/article-110390.htm">宠物食品厂需要投资多少钱（宠物食品工厂需要办理哪些证件）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-88068.htm" title="Win10 的 WPF 程序的 wisptis 服务是附加到进程的窗口">Win10 的 WPF 程序的 wisptis 服务是附加到进程的窗口</a></li>
+                        <li class="py-2"><a href="/news/article-96266.htm" title="动物疫苗的意义和价值（动物疫苗对人体有害吗）">动物疫苗的意义和价值（动物疫苗对人体有害吗）</a></li>
+                        <li class="py-2"><a href="/news/article-98432.htm" title="青岛市动物诊疗价目收费表图片（青岛市动物诊疗价目收费表图片大全）">青岛市动物诊疗价目收费表图片（青岛市动物诊疗价目收费表图片大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-17-surge-github.htm" title="4月17日→18.2M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址">4月17日→18.2M/S|最新免费节点Clash/Shadowrocket/V2ray/SSR/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-107073.htm" title="Asp.Net在线预览Word文档的解决方案与思路">Asp.Net在线预览Word文档的解决方案与思路</a></li>
+                        <li class="py-2"><a href="/news/article-108699.htm" title="动物医院诊疗系统有哪些设备（动物医院诊疗程序）">动物医院诊疗系统有哪些设备（动物医院诊疗程序）</a></li>
+                        <li class="py-2"><a href="/news/article-104550.htm" title="Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作">Parquet文件是怎么被写入的-Row Groups，Pages，需要的内存，以及flush操作</a></li>
+                        <li class="py-2"><a href="/news/article-90256.htm" title="宠物领养是什么行业类别的（宠物领养机构）">宠物领养是什么行业类别的（宠物领养机构）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-node-share-links.htm" title="4月28日→20M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址">4月28日→20M/S|最新免费节点SSR/Shadowrocket/Clash/V2ray/Surge订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-100708.htm" title="国内前十名的兽药厂家排名（国内十大兽药厂排名）">国内前十名的兽药厂家排名（国内十大兽药厂排名）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">87</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+        <footer class="footer">
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex align-items-center">
+                        <p class="mb-0 text-small pt-1 pl-4">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">Free Surge Node机场节点订阅中文站</a> 版权所有 Powered by WordPress
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/base/vendor.bundle.base.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/owl.carousel/js/owl.carousel.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/aos/js/aos.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/jquery-flipster/js/jquery.flipster.min.js"></script>
+    <script src="/assets/website/js/frontend/freesurgenode/template.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
