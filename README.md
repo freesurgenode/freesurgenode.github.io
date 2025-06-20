@@ -1,4 +1,4 @@
-# 6月16日→20.3M/S|最新免费节点Shadowrocket/V2ray/SSR/Clash/Surge订阅链接地址  更新时间 2025-06-16 06:54:41
+# 6月20日→19.9M/S|最新免费节点Shadowrocket/SSR/Clash/V2ray/Surge订阅链接地址  更新时间 2025-06-20 10:25:07
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freesurgenode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/06/0-20250616.yaml
-- https://freesurgenode.github.io/uploads/2025/06/1-20250616.yaml
-- https://freesurgenode.github.io/uploads/2025/06/2-20250616.yaml
-- https://freesurgenode.github.io/uploads/2025/06/3-20250616.yaml
-- https://freesurgenode.github.io/uploads/2025/06/4-20250616.yaml
+- https://freesurgenode.github.io/uploads/2025/06/0-20250620.yaml
+- https://freesurgenode.github.io/uploads/2025/06/1-20250620.yaml
+- https://freesurgenode.github.io/uploads/2025/06/2-20250620.yaml
+- https://freesurgenode.github.io/uploads/2025/06/3-20250620.yaml
+- https://freesurgenode.github.io/uploads/2025/06/4-20250620.yaml
 
 ### V2ray订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/06/0-20250616.txt
-- https://freesurgenode.github.io/uploads/2025/06/1-20250616.txt
-- https://freesurgenode.github.io/uploads/2025/06/2-20250616.txt
-- https://freesurgenode.github.io/uploads/2025/06/3-20250616.txt
-- https://freesurgenode.github.io/uploads/2025/06/4-20250616.txt
+- https://freesurgenode.github.io/uploads/2025/06/0-20250620.txt
+- https://freesurgenode.github.io/uploads/2025/06/1-20250620.txt
+- https://freesurgenode.github.io/uploads/2025/06/2-20250620.txt
+- https://freesurgenode.github.io/uploads/2025/06/3-20250620.txt
+- https://freesurgenode.github.io/uploads/2025/06/4-20250620.txt
 
 ### Sing-box订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/06/20250616.json
+- https://freesurgenode.github.io/uploads/2025/06/20250620.json
 
 ## 更多clash节点订阅 ：
 
