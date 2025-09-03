@@ -1,4 +1,4 @@
-# Free Surge Node - 8月28日22.9M/S|免费V2ray/Clash/Shadowrocket/SSR节点推荐，V2rayC梯子购买推荐  更新时间 2025-08-28 09:08:33
+# Free Surge Node - 9月3日18M/S|免费SSR/Clash/Shadowrocket/V2ray节点推荐，V2rayC梯子购买推荐  更新时间 2025-09-03 06:00:25
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://freesurgenode.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/08/0-20250828.yaml
-- https://freesurgenode.github.io/uploads/2025/08/1-20250828.yaml
-- https://freesurgenode.github.io/uploads/2025/08/2-20250828.yaml
-- https://freesurgenode.github.io/uploads/2025/08/3-20250828.yaml
-- https://freesurgenode.github.io/uploads/2025/08/4-20250828.yaml
+- https://freesurgenode.github.io/uploads/2025/09/0-20250903.yaml
+- https://freesurgenode.github.io/uploads/2025/09/1-20250903.yaml
+- https://freesurgenode.github.io/uploads/2025/09/2-20250903.yaml
+- https://freesurgenode.github.io/uploads/2025/09/3-20250903.yaml
+- https://freesurgenode.github.io/uploads/2025/09/4-20250903.yaml
 
 ### V2ray订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/08/0-20250828.txt
-- https://freesurgenode.github.io/uploads/2025/08/1-20250828.txt
-- https://freesurgenode.github.io/uploads/2025/08/2-20250828.txt
-- https://freesurgenode.github.io/uploads/2025/08/3-20250828.txt
-- https://freesurgenode.github.io/uploads/2025/08/4-20250828.txt
+- https://freesurgenode.github.io/uploads/2025/09/0-20250903.txt
+- https://freesurgenode.github.io/uploads/2025/09/1-20250903.txt
+- https://freesurgenode.github.io/uploads/2025/09/2-20250903.txt
+- https://freesurgenode.github.io/uploads/2025/09/3-20250903.txt
+- https://freesurgenode.github.io/uploads/2025/09/4-20250903.txt
 
 ### Sing-box订阅链接
 
-- https://freesurgenode.github.io/uploads/2025/08/20250828.json
+- https://freesurgenode.github.io/uploads/2025/09/20250903.json
 
 ## 更多clash节点订阅 ：
 
