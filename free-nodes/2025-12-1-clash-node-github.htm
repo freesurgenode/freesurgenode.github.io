@@ -380,34 +380,9 @@ A：需注册美区Apple ID，登录后切换App Store地区，即可购买下�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Vmess 的安全加密方式推荐使用哪种？</h5></div>
-    <div class="panel-body">
-        目前推荐使用 auto 或 none（结合 TLS 加密）以提升性能。旧版 AEAD 加密已被废弃，使用 TLS/XTLS 层提供的加密即可确保安全。过度加密反而增加 CPU 占用与延迟。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
-    <div class="panel-body">
-        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>WinXray 的 PAC 模式如何优化访问？</h5></div>
     <div class="panel-body">
         PAC 模式可根据规则动态判断流量是否走代理，无需手动切换节点。适合国内外混合访问场景，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
-    <div class="panel-body">
-        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的流量分流如何与防火墙配合使用？</h5></div>
-    <div class="panel-body">
-        通过 V2Ray 的路由规则，可将指定流量通过代理出口，而防火墙限制其他流量直连。结合防火墙规则可以实现对内部网络访问和外部代理流量的精准控制。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
-    <div class="panel-body">
-        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 的多路复用对短连接有何优势？</h5></div>
@@ -415,9 +390,34 @@ A：需注册美区Apple ID，登录后切换App Store地区，即可购买下�
         多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接应用，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Vmess 的安全加密方式推荐使用哪种？</h5></div>
+    <div class="panel-body">
+        目前推荐使用 auto 或 none（结合 TLS 加密）以提升性能。旧版 AEAD 加密已被废弃，使用 TLS/XTLS 层提供的加密即可确保安全。过度加密反而增加 CPU 占用与延迟。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 多路复用对短连接性能有何提升？</h5></div>
     <div class="panel-body">
         多路复用允许多个短连接共享同一通道，减少握手延迟和资源消耗。适合高频短连接场景，如游戏和即时通讯，可提高吞吐量和连接稳定性，优化整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 能运行在哪些设备上？</h5></div>
+    <div class="panel-body">
+        PassWall2 是基于 OpenWRT 的插件，只要路由器支持该固件，就能安装运行。常见型号如小米路由、斐讯、软路由都可以使用，通过 Web 界面操作，适合家庭网络使用场景。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的流量分流如何与防火墙配合使用？</h5></div>
+    <div class="panel-body">
+        通过 V2Ray 的路由规则，可将指定流量通过代理出口，而防火墙限制其他流量直连。结合防火墙规则可以实现对内部网络访问和外部代理流量的精准控制。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 的 TUN 模式能全局代理吗？</h5></div>
+    <div class="panel-body">
+        TUN 模式拦截系统 IP 层流量，可实现全局代理，无需手动设置浏览器或应用代理。适合需要全局科学上网或游戏加速的场景，保证所有流量均走代理节点。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hiddify Next 的 Web 面板有什么用途？</h5></div>
+    <div class="panel-body">
+        Hiddify Next 自带 Web 管理面板，管理员可通过浏览器管理用户、监控流量、生成订阅链接并部署节点。无需命令行操作，极大提高管理效率。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>SSR 节点和 V2Ray 节点可以混合使用吗？</h5></div>
@@ -425,9 +425,9 @@ A：需注册美区Apple ID，登录后切换App Store地区，即可购买下�
         可以，但要使用支持多协议的客户端，如 Clash、Sing-box、Mihomo 等。这类客户端能在同一配置文件中加载不同协议的节点，通过规则分流让 SSR 与 V2Ray 同时工作。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 的 TUN 模式能全局代理吗？</h5></div>
+    <div class="panel-heading"><h5>Mihomo 节点分组如何提升访问效率？</h5></div>
     <div class="panel-body">
-        TUN 模式拦截系统 IP 层流量，可实现全局代理，无需手动设置浏览器或应用代理。适合需要全局科学上网或游戏加速的场景，保证所有流量均走代理节点。    </div>
+        节点可按延迟、地区或用途分组，结合策略组实现自动分流。快速选择最优节点可提高网页、视频和游戏访问速度，同时优化节点管理和维护效率，提升整体网络体验。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -456,16 +456,16 @@ A：需注册美区Apple ID，登录后切换App Store地区，即可购买下�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2025-10-17-clash-verge-rev-nodes.htm" title="Free Surge Node - 10月17日18.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月17日18.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-12-3-clash-node-github.htm" title="Free Surge Node - 12月3日22M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 12月3日22M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-8-clash-verge-rev-node-share.htm" title="Free Surge Node - 11月8日20.2M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月8日20.2M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-14-clash-meta-github.htm" title="Free Surge Node - 11月14日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月14日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-30-clash-verge-rev-node-share.htm" title="Free Surge Node - 11月30日20.8M/S|免费Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月30日20.8M/S|免费Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-22-clash-stash-node.htm" title="Free Surge Node - 10月22日18.5M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月22日18.5M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-11-5-clash-verge-rev-node-github.htm" title="Free Surge Node - 11月5日21.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月5日21.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-7-clash-stash-node.htm" title="Free Surge Node - 10月7日18M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月7日18M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-10-19-clash-verge-rev-node.htm" title="Free Surge Node - 10月19日19.6M/S|免费Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月19日19.6M/S|免费Singbox节点/SSR节点/Clash节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-12-free-node-subscribe.htm" title="Free Surge Node - 11月12日22.5M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月12日22.5M/S|免费Singbox节点/Shadowrocket节点/Clash节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-21-clash-verge-rev-node-share.htm" title="Free Surge Node - 11月21日20.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月21日20.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-13-clash-node.htm" title="Free Surge Node - 11月13日22.8M/S|免费V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月13日22.8M/S|免费V2ray节点/SSR节点/Singbox节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2025-11-9-clash-v2ray-ss-ssr.htm" title="Free Surge Node - 11月9日21.6M/S|免费Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月9日21.6M/S|免费Shadowrocket节点/SSR节点/Clash节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-29-clash-v2ray-ss-ssr.htm" title="Free Surge Node - 11月29日22.8M/S|免费Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月29日22.8M/S|免费Singbox节点/SSR节点/V2ray节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-7-clash-node-github.htm" title="Free Surge Node - 11月7日20.8M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月7日20.8M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-3-clash-node-github.htm" title="Free Surge Node - 12月3日22M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 12月3日22M/S|免费Singbox节点/Clash节点/V2ray节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-8-clash-verge-rev-node-github.htm" title="Free Surge Node - 12月8日22.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 12月8日22.6M/S|免费Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-11-26-clash-verge-rev-node-github.htm" title="Free Surge Node - 11月26日18.6M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月26日18.6M/S|免费SSR节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-12-1-clash-node-github.htm" title="Free Surge Node - 12月1日18.3M/S|免费SSR节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 12月1日18.3M/S|免费SSR节点/V2ray节点/Singbox节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -477,13 +477,10 @@ A：需注册美区Apple ID，登录后切换App Store地区，即可购买下�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
+                <h4><span class="badge" style="float: right;">10</span> <a href="/date/2025-12/" title="2025-12 归档">2025-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2025-10/" title="2025-10 归档">2025-10</a></h4>
+                <h4><span class="badge" style="float: right;">23</span> <a href="/date/2025-11/" title="2025-11 归档">2025-11</a></h4>
             </li>
                     </ul>
     </div>
