@@ -329,34 +329,9 @@ HTTP注射器的魅力，正是在于它对HTTP协议机制的巧妙利用。它
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的 PAC 模式如何应用？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
     <div class="panel-body">
-        PAC 模式根据规则自动判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站环境，提高网络访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
-    <div class="panel-body">
-        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 的协议参数和混淆参数如何配置最安全？</h5></div>
-    <div class="panel-body">
-        选择 AEAD 或协议插件可提升安全性，混淆方式如 tls1.2_ticket_auth 可以模拟正常 HTTPS 流量。合理搭配协议和混淆参数，能够有效抵御 DPI 检测和流量封锁。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
-    <div class="panel-body">
-        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 协议和混淆组合如何优化稳定性？</h5></div>
-    <div class="panel-body">
-        根据网络封锁情况选择合适协议和混淆组合，如 tls1.2_ticket_auth 模拟 HTTPS 流量。合理组合可提高抗封锁能力和稳定性，保证节点长期可用并优化网络连接。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。<hr />    </div>
+        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Hysteria2 支持多用户配置吗？</h5></div>
@@ -364,9 +339,34 @@ HTTP注射器的魅力，正是在于它对HTTP协议机制的巧妙利用。它
         Hysteria2 支持多用户配置，管理员可以在服务器端为不同用户分配独立凭证。这样既能保障隐私，也便于流量统计和限速控制，适合团队或小型共享环境。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的 PAC 模式如何应用？</h5></div>
+    <div class="panel-body">
+        PAC 模式根据规则自动判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站环境，提高网络访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>如何在 macOS 上运行 ClashX？</h5></div>
     <div class="panel-body">
         ClashX 是 macOS 平台专用客户端，用户可在 GitHub 下载 DMG 安装包。安装后导入订阅即可使用，支持系统代理集成、自动更新和延迟测试。界面简洁直观，深受苹果用户欢迎。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 协议和混淆组合如何优化稳定性？</h5></div>
+    <div class="panel-body">
+        根据网络封锁情况选择合适协议和混淆组合，如 tls1.2_ticket_auth 模拟 HTTPS 流量。合理组合可提高抗封锁能力和稳定性，保证节点长期可用并优化网络连接。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 的协议参数和混淆参数如何配置最安全？</h5></div>
+    <div class="panel-body">
+        选择 AEAD 或协议插件可提升安全性，混淆方式如 tls1.2_ticket_auth 可以模拟正常 HTTPS 流量。合理搭配协议和混淆参数，能够有效抵御 DPI 检测和流量封锁。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 支持节点订阅的自动更新吗？</h5></div>
+    <div class="panel-body">
+        支持。用户可通过订阅 URL 批量更新节点，程序会自动下载并替换旧节点。定期自动更新可保证节点列表始终有效，减少手动维护的工作量，提高使用效率。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 节点健康检测如何提升网络体验？</h5></div>
+    <div class="panel-body">
+        WinXray 会定期检测节点延迟和丢包率，并结合策略组自动切换到最优节点。避免高延迟或失效节点，提高网页浏览、视频播放和游戏连接的稳定性和速度。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Sing-box 如何按端口分流不同流量？</h5></div>
@@ -374,9 +374,9 @@ HTTP注射器的魅力，正是在于它对HTTP协议机制的巧妙利用。它
         Sing-box 支持按端口匹配流量，将不同应用分配到指定节点。结合策略组使用，可实现精准分流，提高访问速度和网络稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的策略组如何根据节点延迟自动切换？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 的传输效率比 Trojan 高吗？</h5></div>
     <div class="panel-body">
-        策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则，可保证国内流量直连、海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。    </div>
+        在高延迟环境下，VLESS + XTLS 的性能通常比 Trojan 高。XTLS 去掉了冗余加密开销，降低 CPU 占用，提高多连接场景下的吞吐率，尤其在服务器高负载情况下表现更佳。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -405,16 +405,16 @@ HTTP注射器的魅力，正是在于它对HTTP协议机制的巧妙利用。它
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-4-18-clash-verge-rev-node.htm" title="Free Surge Node - 4月18日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月18日21.1M/S|免费SSR节点/Singbox节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-2-clash-verge-rev-nodes.htm" title="Free Surge Node - 5月2日19M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月2日19M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-4-node-share.htm" title="Free Surge Node - 5月4日22.6M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月4日22.6M/S|免费Trojan节点/V2ray节点/Shadowrocket节点/SSR节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-9-clash-verge-rev-github.htm" title="Free Surge Node - 4月9日22M/S|免费Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月9日22M/S|免费Shadowrocket节点/Clash节点/SSR节点/V2ray节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-13-clash-node.htm" title="Free Surge Node - 4月13日19.5M/S|免费Singbox节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月13日19.5M/S|免费Singbox节点/Trojan节点/Clash节点/SSR节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-12-clash-verge-rev-node-share.htm" title="Free Surge Node - 4月12日20.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月12日20.5M/S|免费Shadowrocket节点/Clash节点/Singbox节点/Trojan节点/V2ray节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-27-clash-verge-rev-node-github.htm" title="Free Surge Node - 4月27日22M/S|免费Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月27日22M/S|免费Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-28-clash-stash-node.htm" title="Free Surge Node - 4月28日22M/S|免费Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月28日22M/S|免费Shadowrocket节点/V2ray节点/Trojan节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-1-clash-verge-rev-windows.htm" title="Free Surge Node - 5月1日18.9M/S|免费Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月1日18.9M/S|免费Clash节点/V2ray节点/SSR节点/Shadowrocket节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-11-node-share.htm" title="Free Surge Node - 5月11日18.1M/S|免费Clash节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月11日18.1M/S|免费Clash节点/Singbox节点/V2ray节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-30-clash-verge-rev-nodes.htm" title="Free Surge Node - 4月30日21.5M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月30日21.5M/S|免费V2ray节点/Clash节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-4-14-clash-verge-rev-node.htm" title="Free Surge Node - 4月14日18.4M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月14日18.4M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Clash节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-24-node-share.htm" title="Free Surge Node - 4月24日19.3M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月24日19.3M/S|免费SSR节点/Shadowrocket节点/V2ray节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-11-clash-verge-rev-node-github.htm" title="Free Surge Node - 4月11日19.7M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月11日19.7M/S|免费Trojan节点/Singbox节点/Shadowrocket节点/V2ray节点/Clash节点/SSR节点节点推荐，V2rayC梯子购买推荐</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-23-clash-node.htm" title="Free Surge Node - 4月23日20.3M/S|免费Trojan节点/V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月23日20.3M/S|免费Trojan节点/V2ray节点/Singbox节点/SSR节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-2-clash-verge-rev-nodes.htm" title="Free Surge Node - 5月2日19M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月2日19M/S|免费SSR节点/Singbox节点/Trojan节点/Clash节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-6-clash-node-github.htm" title="Free Surge Node - 5月6日19.1M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 5月6日19.1M/S|免费V2ray节点/Shadowrocket节点/SSR节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-29-clash-verge-rev-node-share.htm" title="Free Surge Node - 4月29日20.9M/S|免费Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月29日20.9M/S|免费Shadowrocket节点/SSR节点/Clash节点/Trojan节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-4-19-clash-stash-node.htm" title="Free Surge Node - 4月19日22.6M/S|免费Singbox节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 4月19日22.6M/S|免费Singbox节点/V2ray节点/Clash节点/SSR节点/Trojan节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a></li>
                     </ul>
     </div>
 </div>
@@ -426,10 +426,10 @@ HTTP注射器的魅力，正是在于它对HTTP协议机制的巧妙利用。它
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">22</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
             </li>
                     </ul>
     </div>
