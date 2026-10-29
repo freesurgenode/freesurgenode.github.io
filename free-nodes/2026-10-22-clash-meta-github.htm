@@ -335,8 +335,14 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
 <div class="clearfix"></div>
 <div class="col-md-12 mt-5">
         <p>上一个：<a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-21.htm">Free Surge Node - 10月21日19.9M/S|免费Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></p>
+        <p>下一个：<a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-23.htm">Free Surge Node - 10月23日21.3M/S|免费Trojan节点/Shadowrocket节点/SSR节点/Singbox节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a></p>
     </div>
 <h4>FAQ</h4>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 如何结合 Xray 内核实现多协议支持？</h5></div>
+    <div class="panel-body">
+        Matsuri 可加载 Xray 核心，通过配置多 inbound/outbound 模块实现 VMess、VLess、Trojan 等协议共存。用户可在单一服务端配置文件中同时支持多客户端访问，便于统一管理。<hr />    </div>
+</div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的 WebSocket + TLS 配置有哪些好处？</h5></div>
     <div class="panel-body">
@@ -348,29 +354,9 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
         可以。Nekobox 配置独立，不影响其他客户端运行。用户可以同时使用 Shadowsocks、Clash 等客户端，通过策略组或分流规则选择合适节点，互不干扰。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 能与 Clash 共存吗？</h5></div>
-    <div class="panel-body">
-        可以。Mellow 与 Clash 核心不同，前者采用透明代理技术，后者通过系统代理生效。两者配置端口不冲突的情况下可共存运行，用于不同的流量处理场景。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>QuantumultX 的广告屏蔽原理是什么？</h5></div>
-    <div class="panel-body">
-        QuantumultX 使用分流规则与脚本结合的方式实现广告屏蔽。通过重写 HTTP 请求和阻止特定域名，它能有效去除 App 内广告或网页弹窗，提升浏览体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>如何提高 Vmess 协议的安全性？</h5></div>
     <div class="panel-body">
         可通过启用 TLS 加密、使用安全端口（如 443）、结合 WebSocket 或 gRPC 传输方式来提升安全性。同时，避免公开分享 UUID，定期更换节点参数能进一步减少被封风险。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 如何结合 Xray 内核实现多协议支持？</h5></div>
-    <div class="panel-body">
-        Matsuri 可加载 Xray 核心，通过配置多 inbound/outbound 模块实现 VMess、VLess、Trojan 等协议共存。用户可在单一服务端配置文件中同时支持多客户端访问，便于统一管理。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekoray 支持 Trojan 吗？</h5></div>
-    <div class="panel-body">
-        支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 节点分组如何自动切换最佳节点？</h5></div>
@@ -378,14 +364,29 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
         将节点按延迟、地区或用途分组，并启用策略组功能，系统会根据节点延迟和健康状态自动切换到最佳节点，保证网页、视频和游戏连接稳定流畅。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekoray 支持 Trojan 吗？</h5></div>
+    <div class="panel-body">
+        支持。Nekoray 基于 sing-box 核心，能兼容 Trojan、Vmess、Vless、Hysteria2 等多种协议。用户可在同一界面中管理和切换不同类型节点，非常方便。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Matsuri 的节点自动测速功能如何配置？</h5></div>
+    <div class="panel-body">
+        Matsuri 可以设置测速周期和节点列表，程序会自动测试延迟和速度并排序。用户可根据测试结果选择最佳节点，提高网络访问速度和使用体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>QuantumultX 的重写脚本可以实现哪些功能？</h5></div>
     <div class="panel-body">
         QuantumultX 支持 JavaScript 重写脚本，可修改请求头、响应内容、跳转 URL、广告屏蔽和定制化流量处理。结合策略组可实现个性化网络访问和优化，提高用户体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Matsuri 的节点自动测速功能如何配置？</h5></div>
+    <div class="panel-heading"><h5>QuantumultX 的广告屏蔽原理是什么？</h5></div>
     <div class="panel-body">
-        Matsuri 可以设置测速周期和节点列表，程序会自动测试延迟和速度并排序。用户可根据测试结果选择最佳节点，提高网络访问速度和使用体验。    </div>
+        QuantumultX 使用分流规则与脚本结合的方式实现广告屏蔽。通过重写 HTTP 请求和阻止特定域名，它能有效去除 App 内广告或网页弹窗，提升浏览体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mellow 能与 Clash 共存吗？</h5></div>
+    <div class="panel-body">
+        可以。Mellow 与 Clash 核心不同，前者采用透明代理技术，后者通过系统代理生效。两者配置端口不冲突的情况下可共存运行，用于不同的流量处理场景。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -415,11 +416,11 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
     <div class="panel-body">
         <div class="row">
             <div class="text-center">
-                <a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
+                <a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">
                     <img src="/assets/website/img/G/xingchen.webp" class="avatar" alt="星辰机场">
                 </a>
                 <dl>
-                    <dt><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></dt>
                     <dd>
                         <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p>                    </dd>
                 </dl>
@@ -433,16 +434,16 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-10-20-clash-meta-github.htm" title="Free Surge Node - 10月20日22.9M/S|免费V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月20日22.9M/S|免费V2ray节点/Clash节点/Singbox节点/Shadowrocket节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-10-clash-node-daily-updates.htm" title="Free Surge Node - 10月10日18.8M/S|免费V2ray节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月10日18.8M/S|免费V2ray节点/Trojan节点/SSR节点/Singbox节点/Shadowrocket节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-9-15.htm" title="Free Surge Node - 9月15日18.3M/S|免费Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月15日18.3M/S|免费Singbox节点/SSR节点/V2ray节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-node-github-2026-10-3.htm" title="Free Surge Node - 10月3日18.9M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月3日18.9M/S|免费Clash节点/Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-22-clash-meta-github.htm" title="Free Surge Node - 10月22日20.6M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月22日20.6M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-9-17.htm" title="Free Surge Node - 9月17日21.5M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月17日21.5M/S|免费V2ray节点/Trojan节点/Shadowrocket节点/Clash节点/Singbox节点/SSR节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-9-11.htm" title="Free Surge Node - 9月11日22.3M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月11日22.3M/S|免费V2ray节点/SSR节点/Clash节点/Singbox节点/Shadowrocket节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-2026-10-1.htm" title="Free Surge Node - 10月1日19.7M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月1日19.7M/S|免费Shadowrocket节点/Clash节点/Trojan节点/V2ray节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-windows-2026-10-15.htm" title="Free Surge Node - 10月15日21.2M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月15日21.2M/S|免费Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-28-clash-node-daily-updates.htm" title="Free Surge Node - 10月28日19.8M/S|免费Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月28日19.8M/S|免费Shadowrocket节点/Clash节点/SSR节点/Singbox节点/V2ray节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-stash-2026-9-7.htm" title="Free Surge Node - 9月7日22.8M/S|免费SSR节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月7日22.8M/S|免费SSR节点/Clash节点/Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-9-19.htm" title="Free Surge Node - 9月19日21.8M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月19日21.8M/S|免费SSR节点/Trojan节点/Clash节点/Singbox节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-25.htm" title="Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-9-26-clash-meta-github.htm" title="Free Surge Node - 9月26日21.1M/S|免费Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月26日21.1M/S|免费Clash节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-clash-verge-rev-node-github.htm" title="Free Surge Node - 9月4日22.4M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月4日22.4M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-clash-meta-github.htm" title="Free Surge Node - 9月14日21.9M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月14日21.9M/S|免费V2ray节点/Shadowrocket节点/Clash节点/Trojan节点/SSR节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-node-2026-9-13.htm" title="Free Surge Node - 9月13日19.6M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月13日19.6M/S|免费Clash节点/Shadowrocket节点/V2ray节点/SSR节点/Singbox节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-4-clash-node.htm" title="Free Surge Node - 10月4日18.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月4日18.7M/S|免费Shadowrocket节点/V2ray节点/Clash节点/Singbox节点/SSR节点/Trojan节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-node-github-2026-9-3.htm" title="Free Surge Node - 9月3日18.7M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 9月3日18.7M/S|免费V2ray节点/Shadowrocket节点/Trojan节点/SSR节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -454,7 +455,7 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
@@ -486,7 +487,7 @@ A4：需要iOS系统版本符合官方要求，建议使用较新设备以保证
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
-                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://c.kilxs.cn/?path=register&code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://xc1.luniu8.com/?code=" data-type="Xingchen" data-code="tlc6gYYx" target="_blank">星辰机场</a></b> <p>【包年送2个月】</p><p>1、购买入门版年付套餐额外送2个月，共14个月，只要99元！！！</p><p>2、购买“至尊天皇”年付套餐，额外送2个月，只要299元！！！</p><p>3、购买其他包月类套餐中的年付，同样送2个月！！！</p><p>错过要再等一年！！</p></div>
                                                 <a href="/">Free Surge Node机场节点订阅官网</a> 版权所有 Powered by WordPress
                         </p>
                     </div>
