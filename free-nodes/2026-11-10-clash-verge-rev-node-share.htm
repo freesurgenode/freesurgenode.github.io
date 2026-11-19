@@ -316,19 +316,14 @@
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 的日志界面怎么看节点状态？</h5></div>
+    <div class="panel-heading"><h5>Hysteria2 多路复用对即时通讯的优势是什么？</h5></div>
     <div class="panel-body">
-        Shadowrocket 的日志界面实时显示连接记录与节点响应延迟。绿色代表成功连接，红色代表失败，通过查看错误码可判断是 DNS 问题、TLS 握手失败还是代理超时。<hr />    </div>
+        多路复用可让多个短连接共享同一通道，减少握手次数和加密开销，提高吞吐量和连接稳定性。适合即时通讯应用，保证消息快速传输和稳定接收。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray 的测速功能不显示结果怎么办？</h5></div>
+    <div class="panel-heading"><h5>Clash 订阅被墙或无法下载如何绕过？</h5></div>
     <div class="panel-body">
-        测速依赖于节点响应时间与服务器网络质量。若测速为空白，请检查系统时间同步、网络防火墙及代理端口设置是否正确；也可更新到最新版本修复已知测速模块异常问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
-    <div class="panel-body">
-        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。<hr />    </div>
+        若订阅源被直接屏蔽，可尝试先在境外服务器上用代理代理获取订阅并通过中转服务器公开一个新的链接；或者使用 HTTPS 与 CDN 中转、或将订阅以文件形式托管在不易被封的云存储上。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>V2Ray 的 gRPC 传输方式有哪些优势？</h5></div>
@@ -341,6 +336,21 @@
         打开 V2RayN 后，点击右下角托盘图标，选择“设置系统代理”或“开启全局模式”。这样系统所有网络请求都会通过代理转发。适用于浏览器、下载器等需要全局代理的场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray 的测速功能不显示结果怎么办？</h5></div>
+    <div class="panel-body">
+        测速依赖于节点响应时间与服务器网络质量。若测速为空白，请检查系统时间同步、网络防火墙及代理端口设置是否正确；也可更新到最新版本修复已知测速模块异常问题。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 的日志界面怎么看节点状态？</h5></div>
+    <div class="panel-body">
+        Shadowrocket 的日志界面实时显示连接记录与节点响应延迟。绿色代表成功连接，红色代表失败，通过查看错误码可判断是 DNS 问题、TLS 握手失败还是代理超时。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何结合节点测速优化策略组？</h5></div>
+    <div class="panel-body">
+        PassWall2 会定期测速节点延迟和丢包率，并根据策略组自动选择最优节点。通过测速和自动切换，可保证网页、视频和游戏流量走低延迟节点，提升整体网络体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 节点延迟排序功能如何提升访问体验？</h5></div>
     <div class="panel-body">
         Shadowrocket 会测速节点延迟和丢包率，并优先使用低延迟节点。结合策略组和分流规则，可保证网页、视频和游戏流量通过最优节点，提高访问速度和稳定性。<hr />    </div>
@@ -351,19 +361,9 @@
         Clash Premium 是 Clash 的增强版，增加了 TUN 模式、脚本功能、流量统计与规则订阅等高级特性。它更适合有复杂分流需求的用户，尤其是需要对系统级代理进行全局控制的场景。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 多路复用对即时通讯的优势是什么？</h5></div>
+    <div class="panel-heading"><h5>V2RayA 在 Linux 系统中如何开机自启？</h5></div>
     <div class="panel-body">
-        多路复用可让多个短连接共享同一通道，减少握手次数和加密开销，提高吞吐量和连接稳定性。适合即时通讯应用，保证消息快速传输和稳定接收。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何结合节点测速优化策略组？</h5></div>
-    <div class="panel-body">
-        PassWall2 会定期测速节点延迟和丢包率，并根据策略组自动选择最优节点。通过测速和自动切换，可保证网页、视频和游戏流量走低延迟节点，提升整体网络体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Clash 订阅被墙或无法下载如何绕过？</h5></div>
-    <div class="panel-body">
-        若订阅源被直接屏蔽，可尝试先在境外服务器上用代理代理获取订阅并通过中转服务器公开一个新的链接；或者使用 HTTPS 与 CDN 中转、或将订阅以文件形式托管在不易被封的云存储上。    </div>
+        可通过 systemd 创建启动项或在启动脚本中添加 V2RayA 启动命令。编辑 /etc/systemd/system/v2raya.service 文件并设置 `Restart=always`，执行 `systemctl enable v2raya` 使其随系统自动启动。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -411,16 +411,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-11-12-clash-verge-rev-node-share.htm" title="Free Surge Node - 11月12日20.2M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月12日20.2M/S|免费Trojan节点/Shadowrocket节点/V2ray节点/Singbox节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-node-github-2026-10-13.htm" title="Free Surge Node - 10月13日20.5M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月13日20.5M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-25.htm" title="Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-6-free-node-subscribe.htm" title="Free Surge Node - 11月6日21.4M/S|免费Singbox节点/SSR节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月6日21.4M/S|免费Singbox节点/SSR节点/V2ray节点/Trojan节点/Clash节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-2026-11-1.htm" title="Free Surge Node - 11月1日23M/S|免费SSR节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月1日23M/S|免费SSR节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-2026-11-11.htm" title="Free Surge Node - 11月11日18.4M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月11日18.4M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-11-2-clash-node.htm" title="Free Surge Node - 11月2日20.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月2日20.7M/S|免费Shadowrocket节点/Singbox节点/V2ray节点/Trojan节点/SSR节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-31.htm" title="Free Surge Node - 10月31日21.6M/S|免费Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月31日21.6M/S|免费Clash节点/Singbox节点/V2ray节点/Trojan节点/SSR节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-10-30-clash-node.htm" title="Free Surge Node - 10月30日21.4M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月30日21.4M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/V2ray节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-10-21.htm" title="Free Surge Node - 10月21日19.9M/S|免费Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月21日19.9M/S|免费Shadowrocket节点/SSR节点/Trojan节点/V2ray节点/Singbox节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-18-clash-verge-rev-node-github.htm" title="Free Surge Node - 10月18日22.8M/S|免费Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月18日22.8M/S|免费Singbox节点/Shadowrocket节点/SSR节点/V2ray节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-16-clash-verge-rev-nodes.htm" title="Free Surge Node - 10月16日20.7M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月16日20.7M/S|免费Clash节点/Singbox节点/SSR节点/Trojan节点/V2ray节点/Shadowrocket节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-node-github-2026-10-13.htm" title="Free Surge Node - 10月13日20.5M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月13日20.5M/S|免费Trojan节点/SSR节点/Clash节点/Shadowrocket节点/Singbox节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-2026-11-1.htm" title="Free Surge Node - 11月1日23M/S|免费SSR节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月1日23M/S|免费SSR节点/Trojan节点/V2ray节点/Shadowrocket节点/Clash节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-v2ray-ss-ssr-2026-11-15.htm" title="Free Surge Node - 11月15日18.6M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月15日18.6M/S|免费V2ray节点/Singbox节点/SSR节点/Shadowrocket节点/Trojan节点/Clash节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-25.htm" title="Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月25日19.8M/S|免费Singbox节点/Shadowrocket节点/Trojan节点/Clash节点/SSR节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-10-22-clash-meta-github.htm" title="Free Surge Node - 10月22日20.6M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月22日20.6M/S|免费Shadowrocket节点/SSR节点/Trojan节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/clash-verge-rev-github-2026-10-11.htm" title="Free Surge Node - 10月11日18.1M/S|免费Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 10月11日18.1M/S|免费Trojan节点/SSR节点/Shadowrocket节点/Singbox节点/Clash节点/V2ray节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-2026-11-11.htm" title="Free Surge Node - 11月11日18.4M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐">Free Surge Node - 11月11日18.4M/S|免费V2ray节点/SSR节点/Shadowrocket节点/Clash节点/Trojan节点/Singbox节点节点推荐，V2rayC梯子购买推荐</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -432,7 +432,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
+                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-11/" title="2026-11 归档">2026-11</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
